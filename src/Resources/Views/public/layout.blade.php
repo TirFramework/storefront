@@ -1,11 +1,5 @@
-@php
-    use Tir\Setting\Helpers\Stg;
-    use Tir\Crud\Support\Helpers\CrudHelper;
-@endphp
-
-
 <!DOCTYPE html>
-<html lang="{{ CrudHelper::locale()}}">
+<html lang="{{ Crud::locale()}}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,10 +18,10 @@
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Rubik:400,500" rel="stylesheet">
 
-        @if (CrudHelper::is_rtl())
-            <link rel="stylesheet" href="{{ CrudHelper::version(url('public/css/app.rtl.css')) }}">
+        @if (Crud::is_rtl())
+            <link rel="stylesheet" href="{{ Crud::version(url('themes/storefront/public/css/app.rtl.css')) }}">
         @else
-            <link rel="stylesheet" href="{{ CrudHelper::version(url('public/css/app.css')) }}">
+            <link rel="stylesheet" href="{{ Crud::version(url('themes/storefront/public/css/app.css')) }}">
         @endif
 
         <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
@@ -51,24 +45,24 @@
         @routes
     </head>
 
-    <body class="{{ $theme }} {{ storefront_layout() }} {{ is_rtl() ? 'rtl' : 'ltr' }}">
+    <body class="{{ $theme }} {{ Stf::layout() }} {{ Crud::is_rtl() ? 'rtl' : 'ltr' }}">
         <!--[if lt IE 8]>
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <div class="main">
             <div class="wrapper">
-                @include('public.partials.sidebar')
-                @include('public.partials.top_nav')
-                @include('public.partials.header')
-                @include('public.partials.navbar')
+                @include('storefront::public.partials.sidebar')
+                @include('storefront::public.partials.top_nav')
+                @include('storefront::public.partials.header')
+                @include('storefront::public.partials.navbar')
 
                 <div class="content-wrapper clearfix {{ request()->routeIs('cart.index') ? 'cart-page' : '' }}">
                     <div class="container">
-                        @include('public.partials.breadcrumb')
+                        @include('storefront::public.partials.breadcrumb')
 
                         @unless (request()->routeIs('home') || request()->routeIs('login') || request()->routeIs('register') || request()->routeIs('reset') || request()->routeIs('reset.complete'))
-                            @include('public.partials.notification')
+                            @include('storefront::public.partials.notification')
                         @endunless
 
                         @yield('content')
@@ -93,7 +87,7 @@
                     </section>
                 @endif
 
-                @include('public.partials.footer')
+                @include('storefront::public.partials.footer')
 
                 <a class="scroll-top" href="#">
                     <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -119,10 +113,10 @@
             @endunless
         </div>
 
-        @include('public.partials.quick_view_modal')
+        @include('storefront::public.partials.quick_view_modal')
 
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <script src="{{ v(Theme::url('public/js/app.js')) }}"></script>
+        <script src="{{ Crud::version(url('themes/storefront/public/js/app.js')) }}"></script>
 
         @stack('scripts')
 

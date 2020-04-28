@@ -1,13 +1,15 @@
 <div class="sidebar">
     <ul class="sidebar-content clearfix">
-        @foreach ($categoryMenu->menus() as $menu)
-            <li>
-                <a href="{{ $menu->url() }}">{{ $menu->name() }}</a>
+        @isset($categoryMeny)
+            @foreach ($categoryMenu->menus() as $menu)
+                <li>
+                    <a href="{{ $menu->url() }}">{{ $menu->name() }}</a>
 
-                @if ($menu->hasSubMenus())
-                    @include('public.partials.nested_sidebar', ['subMenus' => $menu->subMenus()])
-                @endif
-            </li>
-        @endforeach
+                    @if ($menu->hasSubMenus())
+                        @include('public.partials.nested_sidebar', ['subMenus' => $menu->subMenus()])
+                    @endif
+                </li>
+            @endforeach
+        @endisset
     </ul>
 </div>

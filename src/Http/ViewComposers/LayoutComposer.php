@@ -11,6 +11,11 @@ namespace Tir\Storefront\Http\ViewComposers;
 //use Illuminate\Support\Facades\Cache;
 //use Modules\Category\Entities\Category;
 
+use Tir\Menu\MegaMenu\MegaMenu;
+use Tir\Setting\Facades\Stg;
+use Tir\Store\Category\Entities\Category;
+use Tir\Storefront\Facades\Stf;
+
 class LayoutComposer
 {
     /**
@@ -22,9 +27,18 @@ class LayoutComposer
     public function compose($view)
     {
         $view->with([
+            'favicon' => $this->getFavicon(),
+            'categories' => $this->getCategories(),
+            'categoryMenu' => $this->getCategoryMenu(),
+            'primaryMenu' => $this->getPrimaryMenu(),
+            'shouldExpandCategoryMenu' => $this->getShouldExpandCategoryMenu(),
 
-            'favicon' => null,
+
             'theme' => 'theme-blue',
+            'headerLogo' => null,
+            'footerLogo' => null,
+            'socialLinks' => null,
+            'copyrightText' => null,
 
         ]);
 
@@ -63,7 +77,8 @@ class LayoutComposer
 
     private function getLogo($key)
     {
-        return File::findOrNew(Stg::get($key))->path;
+        return Stg::get($key);
+       // return File::findOrNew(Stg::get($key))->path;
     }
 
     private function getCategories()
@@ -88,7 +103,7 @@ class LayoutComposer
 
     private function getShouldExpandCategoryMenu()
     {
-        $layout = storefront_layout();
+        $layout = stf::layout();
 
         if ($layout === 'default') {
             return request()->routeIs('home');

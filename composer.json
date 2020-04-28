@@ -22,7 +22,10 @@
         "laravel": {
             "providers": [
                 "Tir\\Storefront\\StorefrontServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Stf": "Tir\\Storefront\\Facades\\Stf"
+            }
         }
     }
 }

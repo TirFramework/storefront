@@ -8,7 +8,6 @@ use Illuminate\Support\ServiceProvider;
 use Tir\Storefront\Http\ViewComposers\HomePageComposer;
 use Tir\Storefront\Http\ViewComposers\LayoutComposer;
 
-
 class StorefrontServiceProvider extends ServiceProvider
 {
     /**
@@ -40,7 +39,7 @@ class StorefrontServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/Resources/Views', 'storefront');
 
-//        $this->loadTranslationsFrom(__DIR__.'/Resources/Lang/', 'menu');
+        $this->loadTranslationsFrom(__DIR__.'/Resources/Lang/', 'storefront');
 
     }
 }

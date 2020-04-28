@@ -4,8 +4,8 @@
     </a>
 
     @if ($menu->isFluid())
-        @include('public.partials.mega_menu.fluid')
+        @include('storefront::public.partials.mega_menu.fluid')
     @else
-        @include('public.partials.mega_menu.dropdown', ['subMenus' => $menu->subMenus(), 'class' => 'multi-level'])
+        @include('storefront::public.partials.mega_menu.dropdown', ['subMenus' => $menu->subMenus(), 'class' => 'multi-level'])
     @endif
 </li>

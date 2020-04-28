@@ -1,9 +1,3 @@
-@php
-    use Tir\Setting\Helpers\Stg;
-    use Tir\Crud\Support\Helpers\CrudHelper;
-@endphp
-
-
 @extends('storefront::public.layout')
 
 @section('title', Stg::get('store_tagline'))
