@@ -5,7 +5,7 @@
 >
     @foreach ($slider->slides as $slide)
         <div class="slide">
-            <div class="slider-image" style="background-image: url({{ $slide->file->path }});"></div>
+            <div class="slider-image" style="background-image:url({{$slide->file}});"></div>
 
             <div class="display-table">
                 <div class="display-table-cell">

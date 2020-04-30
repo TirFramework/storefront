@@ -4,21 +4,21 @@
 
 @section('content')
     @unless (is_null($slider))
-        @if (storefront_layout() === 'default')
+        @if (Stf::layout() === 'default')
             <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3">
                 <div class="row">
-                    @include('public.home.sections.slider')
+                    @include('storefront::public.home.sections.slider')
                 </div>
             </div>
             <div class="clearfix"></div>
-        @elseif (storefront_layout() === 'slider_with_banners')
+        @elseif (Stf::layout() === 'slider_with_banners')
             <div class="row">
                 <div class="col-md-9">
-                    @include('public.home.sections.slider')
+                    @include('storefront::public.home.sections.slider')
                 </div>
 
                 <div class="col-md-3 hidden-sm hidden-xs">
-                    @include('public.home.sections.slider_banners')
+                    @include('storefront::public.home.sections.slider_banners')
                 </div>
             </div>
         @endif
@@ -30,9 +30,9 @@
         @include('storefront::public.home.sections.features')
     @endif
 
-    @if (Stg::get('storefront_banner_section_1_enabled'))
-        @include('storefront::public.home.sections.banner_section_1')
-    @endif
+{{--    @if (Stg::get('storefront_banner_section_1_enabled'))--}}
+{{--        @include('storefront::public.home.sections.banner_section_1')--}}
+{{--    @endif--}}
 
     @if (Stg::get('storefront_product_carousel_section_enabled'))
         @include('storefront::public.home.sections.product_carousel', [
@@ -72,10 +72,10 @@
         @include('storefront::public.home.sections.two_column_product_carousel')
     @endif
 
-    @if (Stg::get('storefront_recently_viewed_section_enabled'))
-        @include('storefront::public.products.partials.landscape_products', [
-            'title' => Stg::get('storefront_recently_viewed_section_title'),
-            'products' => $recentlyViewedProducts
-        ])
-    @endif
+{{--    @if (Stg::get('storefront_recently_viewed_section_enabled'))--}}
+{{--        @include('storefront::public.products.partials.landscape_products', [--}}
+{{--            'title' => Stg::get('storefront_recently_viewed_section_title'),--}}
+{{--            'products' => $recentlyViewedProducts--}}
+{{--        ])--}}
+{{--    @endif--}}
 @endsection

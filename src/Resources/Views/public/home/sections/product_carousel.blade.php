@@ -8,7 +8,7 @@
             <div class="product-slider slick-arrow separator clearfix">
                 @foreach ($products as $product)
                     <div class="col-md-3">
-                        @include('public.products.partials.product_card')
+                        @include('storefront::public.products.partials.product_card')
                     </div>
                 @endforeach
             </div>

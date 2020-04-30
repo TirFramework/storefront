@@ -3,7 +3,9 @@
 namespace Tir\Storefront\Http\ViewComposers;
 
 use Illuminate\Support\Collection;
-use Tir\Setting\Helpers\Stg;
+use Tir\Setting\Facades\Stg;
+use Tir\Slider\Entities\Slider;
+use Tir\Store\Product\Entities\Product;
 
 
 class HomePageComposer
@@ -34,13 +36,16 @@ class HomePageComposer
     public function compose($view)
     {
         $view->with([
-            'stg'   => Stg::class,
-            'slider' => null,
+            'slider' => Slider::findWithSlides(Stg::get('storefront_slider')),
+            'features' => $this->getFeatures(),
+            'carouselProducts' => $this->getCarouselProducts(),
+            'recentProducts' => $this->getRecentProducts(),
+
 
         ]);
 
 /*        $view->with([
-            'slider' => Slider::findWithSlides(Stg::get('storefront_slider')),
+            //'slider' => Slider::findWithSlides(Stg::get('storefront_slider')),
             'sliderBanners' => Banner::allForSliderBanners(),
             'bannerSectionOneBanners' => $this->getBannerSectionOneBanners(),
             'features' => $this->getFeatures(),

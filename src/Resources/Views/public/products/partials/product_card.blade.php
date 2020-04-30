@@ -11,15 +11,25 @@
                 @endif
             </ul>
 
-            @if (! $product->base_image->exists)
-                <div class="image-placeholder">
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
-                </div>
-            @else
-                <div class="image-holder">
-                    <img src="{{ $product->base_image->path }}">
-                </div>
-            @endif
+{{--            @if (! $product->base_image->exists)--}}
+{{--                <div class="image-placeholder">--}}
+{{--                    <i class="fa fa-picture-o" aria-hidden="true"></i>--}}
+{{--                </div>--}}
+{{--            @else--}}
+{{--                <div class="image-holder">--}}
+{{--                    <img src="{{ $product->base_image->path }}">--}}
+{{--                </div>--}}
+{{--            @endif--}}
+
+                @if(! isset($product->image))
+                    <div class="image-placeholder">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </div>
+                @else
+                    <div class="image-holder">
+                        <img src="{{ $product->image }}">
+                    </div>
+                @endif
 
             <div class="quick-view-wrapper" data-toggle="tooltip" data-placement="top" title="{{ trans('storefront::product_card.quick_view') }}">
                 <button type="button" class="btn btn-quick-view" data-slug="{{ $product->slug }}">
@@ -29,17 +39,20 @@
         </div>
 
         <div class="product-content clearfix">
-            <span class="product-price">{{ product_price($product) }}</span>
+            <span class="product-price">
+                {{ \Tir\Store\Product\Support\Price::render($product) }}
+            </span>
             <span class="product-name">{{ $product->name }}</span>
         </div>
 
         <div class="add-to-actions-wrapper">
-            <form method="POST" action="{{ route('wishlist.store') }}">
+{{--            <form method="POST" action="{{ route('wishlist.store') }}">--}}
+            <form method="POST" action="#">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
 
-                <button type="submit" class="btn btn-wishlist" data-toggle="tooltip" data-placement="{{ is_rtl() ? 'left' : 'right' }}" title="{{ trans('storefront::product_card.add_to_wishlist') }}">
+                <button type="submit" class="btn btn-wishlist" data-toggle="tooltip" data-placement="{{ Crud::is_rtl() ? 'left' : 'right' }}" title="{{ trans('storefront::product_card.add_to_wishlist') }}">
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
             </form>
@@ -49,7 +62,8 @@
                     {{ trans('storefront::product_card.view_details') }}
                 </button>
             @else
-                <form method="POST" action="{{ route('cart.items.store') }}">
+{{--                <form method="POST" action="{{ route('cart.items.store') }}">--}}
+                <form method="POST" action="#">
                     {{ csrf_field() }}
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -61,12 +75,13 @@
                 </form>
             @endif
 
-            <form method="POST" action="{{ route('compare.store') }}">
+{{--            <form method="POST" action="{{ route('compare.store') }}">--}}
+            <form method="POST" action="#">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
 
-                <button type="submit" class="btn btn-compare" data-toggle="tooltip" data-placement="{{ is_rtl() ? 'right' : 'left' }}" title="{{ trans('storefront::product_card.add_to_compare') }}">
+                <button type="submit" class="btn btn-compare" data-toggle="tooltip" data-placement="{{ Crud::is_rtl() ? 'right' : 'left' }}" title="{{ trans('storefront::product_card.add_to_compare') }}">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                 </button>
             </form>

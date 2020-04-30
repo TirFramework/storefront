@@ -2,7 +2,7 @@
     <div class="table-responsive">
         <table class="table">
             <tbody>
-                @foreach ($product->attributeSets as $attributeSet => $attributes)
+                @foreach ($product->attribute_sets as $attributeSet => $attributes)
                     <tr>
                         <td><h4>{{ $attributeSet }}</h4></td>
 

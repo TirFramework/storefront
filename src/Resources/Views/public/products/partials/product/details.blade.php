@@ -2,13 +2,13 @@
     <div class="product-details">
         <h1 class="product-name">{{ $product->name }}</h1>
 
-        @if (setting('reviews_enabled'))
-            @include('public.products.partials.product.rating', ['rating' => $product->avgRating()])
+{{--        @if (Stg::get('reviews_enabled'))--}}
+{{--            @include('public.products.partials.product.rating', ['rating' => $product->avgRating()])--}}
 
-            <span class="product-review">
-                ({{ intl_number($product->reviews->count()) }} {{ trans('storefront::product.customer_reviews') }})
-            </span>
-        @endif
+{{--            <span class="product-review">--}}
+{{--                ({{ intl_number($product->reviews->count()) }} {{ trans('storefront::product.customer_reviews') }})--}}
+{{--            </span>--}}
+{{--        @endif--}}
 
         @unless (is_null($product->sku))
             <div class="sku">
@@ -20,14 +20,15 @@
         @if ($product->manage_stock)
             <span class="left-in-stock">
                 {{ trans('storefront::product.only') }}
-                <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ intl_number($product->qty) }}</span>
+{{--                <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ intl_number($product->qty) }}</span>--}}
+                <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ $product->qty }}</span>
                 {{ trans('storefront::product.left') }}
             </span>
         @endif
 
         <div class="clearfix"></div>
 
-        <span class="product-price pull-left">{{ product_price($product) }}</span>
+        <span class="product-price pull-left">{{ \Tir\Store\Product\Support\Price::render($product) }}</span>
 
         <div class="availability pull-left">
             <label>{{ trans('storefront::product.availability') }}:</label>
@@ -45,7 +46,8 @@
             <div class="product-brief">{{ $product->short_description }}</div>
         @endif
 
-        <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">
+{{--        <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">--}}
+        <form method="POST" action="" class="clearfix">
             {{ csrf_field() }}
 
             <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -81,7 +83,8 @@
         <div class="clearfix"></div>
 
         <div class="add-to clearfix">
-            <form method="POST" action="{{ route('wishlist.store') }}">
+{{--            <form method="POST" action="{{ route('wishlist.store') }}">--}}
+            <form method="POST" action="">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -89,7 +92,8 @@
                 <button type="submit">{{ trans('storefront::product.add_to_wishlist') }}</button>
             </form>
 
-            <form method="POST" action="{{ route('compare.store') }}">
+{{--            <form method="POST" action="{{ route('compare.store') }}">--}}
+            <form method="POST" action="">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
