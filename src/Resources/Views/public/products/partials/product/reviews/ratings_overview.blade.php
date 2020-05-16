@@ -2,16 +2,16 @@
     <div class="rating">
         <div class="average-rating clearfix">
             <div class="average">
-                <span>{{ intl_number($product->avgRating()) }}</span>
+                <span>{{ $product->avgRating() }}</span>
             </div>
 
-            @include('public.products.partials.product.rating', ['rating' => $product->avgRating()])
+            @include('storefront::public.products.partials.product.rating', ['rating' => $product->avgRating()])
 
             <span class="rate-of-average">
-                {{ intl_number($product->avgRating()) }} {{ trans('storefront::product.reviews.out_of_5') }}
+                {{ $product->avgRating() }} {{ trans('storefront::product.reviews.out_of_5') }}
             </span>
 
-            <span class="reviews-total">{{ intl_number($product->reviews->count()) }} {{ trans('storefront::product.customer_reviews') }}</span>
+            <span class="reviews-total">{{ $product->reviews->count() }} {{ trans('storefront::product.customer_reviews') }}</span>
         </div>
 
         <div class="rating-bars-wrapper clearfix">
@@ -22,7 +22,7 @@
                     <div class="progress-bar" style="width: {{ $ratedFiveTimes = $product->percentageReviewsForStar(5) }}%"></div>
                 </div>
 
-                <span class="rating-percentage">{{ intl_number($ratedFiveTimes) }}%</span>
+                <span class="rating-percentage">{{ $ratedFiveTimes }}%</span>
             </div>
 
             <div class="rating-bar">
@@ -32,7 +32,7 @@
                     <div class="progress-bar" style="width: {{ $ratedFourTimes = $product->percentageReviewsForStar(4) }}%"></div>
                 </div>
 
-                <span class="rating-percentage">{{ intl_number($ratedFourTimes) }}%</span>
+                <span class="rating-percentage">{{ $ratedFourTimes }}%</span>
             </div>
 
             <div class="rating-bar">
@@ -42,7 +42,7 @@
                     <div class="progress-bar" style="width: {{ $ratedThreeTimes = $product->percentageReviewsForStar(3) }}%"></div>
                 </div>
 
-                <span class="rating-percentage">{{ intl_number($ratedThreeTimes) }}%</span>
+                <span class="rating-percentage">{{ $ratedThreeTimes }}%</span>
             </div>
 
             <div class="rating-bar">
@@ -52,7 +52,7 @@
                     <div class="progress-bar" style="width: {{ $ratedTwoTimes = $product->percentageReviewsForStar(2) }}%"></div>
                 </div>
 
-                <span class="rating-percentage">{{ intl_number($ratedTwoTimes) }}%</span>
+                <span class="rating-percentage">{{ $ratedTwoTimes}}%</span>
             </div>
 
             <div class="rating-bar">
@@ -62,7 +62,7 @@
                     <div class="progress-bar" style="width: {{ $ratedOneTimes = $product->percentageReviewsForStar(1) }}%"></div>
                 </div>
 
-                <span class="rating-percentage">{{ intl_number($ratedOneTimes) }}%</span>
+                <span class="rating-percentage">{{ $ratedOneTimes }}%</span>
             </div>
         </div>
     </div>

@@ -28,8 +28,7 @@
             <div class="col-md-12">
                 <div class="tab product-tab clearfix">
                     <ul class="nav nav-tabs">
-{{--                        <li class="{{ request()->has('reviews') || review_form_has_error($errors) ? '' : 'active' }}">--}}
-                        <li class="{{ request()->has('reviews') }}">
+                        <li class="{{ request()->has('reviews') || Rviw::form_has_error($errors) ? '' : 'active' }}">
                             <a data-toggle="tab" href="#description">{{ trans('storefront::product.tabs.description') }}</a>
                         </li>
 
@@ -39,11 +38,11 @@
                             </li>
                         @endif
 
-{{--                        @if (setting('reviews_enabled'))--}}
-{{--                            <li class="{{ request()->has('reviews') || review_form_has_error($errors) ? 'active' : '' }} {{ review_form_has_error($errors) ? 'error' : '' }}">--}}
-{{--                                <a data-toggle="tab" href="#reviews">{{ trans('storefront::product.tabs.reviews') }}</a>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
+                        @if (Stg::get('reviews_enabled'))
+                            <li class="{{ request()->has('reviews') || Rviw::form_has_error($errors) ? 'active' : '' }} {{ Rviw::form_has_error($errors) ? 'error' : '' }}">
+                                <a data-toggle="tab" href="#reviews">{{ trans('storefront::product.tabs.reviews') }}</a>
+                            </li>
+                        @endif
                     </ul>
 
                     <div class="tab-content">
