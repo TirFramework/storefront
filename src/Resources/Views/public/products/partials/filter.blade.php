@@ -1,6 +1,6 @@
 <div class="col-md-3 col-sm-12">
     <div class="product-list-sidebar clearfix">
-        @include('public.products.partials.category_filter')
+        @include('storefront::public.products.partials.category_filter')
 
         <form method="GET" action="{{ route('products.index') }}" id="product-filter-form">
             @foreach (request()->except(['attribute', 'fromPrice', 'toPrice']) as $query => $value)
@@ -22,8 +22,8 @@
                                             name="attribute[{{ mb_strtolower($attribute->name) }}][]"
                                             value="{{ mb_strtolower($value->value) }}"
                                             id="attribute-{{ $value->id }}"
-                                            {{ is_filtering($value->value) ? 'checked' : '' }}
-                                        >
+                                            class="{{ Tir\Store\Attribute\Facades\Attr::is_filtering($value->value) ? 'checked' : '' }}"
+                                            {{ Tir\Store\Attribute\Facades\Attr::is_filtering($value->value) ? 'checked' : '' }}>
 
                                         <label for="attribute-{{ $value->id }}">{{ $value->value }}</label>
                                     </div>

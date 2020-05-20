@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title')
     @if (request()->has('query'))
@@ -11,7 +11,7 @@
 @section('content')
     <section class="product-list">
         <div class="row">
-            @include('public.products.partials.filter')
+            @include('storefront::public.products.partials.filter')
 
             <div class="col-md-9 col-sm-12">
                 <div class="product-list-header clearfix">
@@ -21,8 +21,9 @@
                         @else
                             <h3>{{ trans('storefront::products.shop') }}</h3>
                         @endif
-
-                        <span>{{ intl_number($products->total()) }} {{ trans_choice('storefront::products.products_found', $products->total()) }}</span>
+                        {{-- TODO:Check helper function  --}}
+                        {{-- <span>{{ intl_number($products->total()) }} {{ trans_choice('storefront::products.products_found', $products->total()) }}</span>--}}
+                        <span>{{ $products->total()}}  @lang('storefront::products.products_found') </span>
                     </div>
 
                     <div class="search-result-right pull-right">
@@ -71,7 +72,6 @@
                 </div>
 
                 <div class="clearfix"></div>
-
                 <div class="product-list-result clearfix">
                     <div class="tab-content">
                         <div id="grid-view" class="tab-pane {{ ($viewMode = request('viewMode', 'grid')) === 'grid' ? 'active' : '' }}">
@@ -79,7 +79,7 @@
                                 <div class="grid-products separator">
                                     @if ($viewMode === 'grid')
                                         @forelse ($products as $product)
-                                            @include('public.products.partials.product_card')
+                                            @include('storefront::public.products.partials.product_card')
                                         @empty
                                             <h3>{{ trans('storefront::products.no_products_were_found') }}</h3>
                                         @endforelse
@@ -91,7 +91,7 @@
                         <div id="list-view" class="tab-pane {{ $viewMode === 'list' ? 'active' : '' }}">
                             @if ($viewMode === 'list')
                                 @forelse ($products as $product)
-                                    @include('public.products.partials.list_view_product_card')
+                                    @include('storefront::public.products.partials.list_view_product_card')
                                 @empty
                                     <h3>{{ trans('storefront::products.no_products_were_found') }}</h3>
                                 @endforelse

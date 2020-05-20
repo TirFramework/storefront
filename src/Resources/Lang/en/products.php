@@ -4,7 +4,7 @@ return [
     'loading' => 'Loading...',
     'search_results_for' => 'Search results for',
     'shop' => 'Shop',
-    'products_found' => 'product found|products found',
+    'products_found' => 'products found',
     'no_products_were_found' => 'No products were found.',
     'grid_view' => 'Grid view',
     'list_view' => 'List view',

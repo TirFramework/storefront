@@ -10,13 +10,13 @@
             @endif
         </ul>
 
-        @if (! $product->base_image->exists)
+        @if (! $product->image)
             <div class="image-placeholder">
                 <i class="fa fa-picture-o" aria-hidden="true"></i>
             </div>
         @else
             <div class="image-holder">
-                <img src="{{ $product->base_image->path }}">
+                <img src="{{ $product->image }}">
             </div>
         @endif
     </a>
@@ -27,13 +27,15 @@
                 <h5>{{ $product->name }}</h5>
             </a>
 
-            <span class="product-price">{{ product_price($product) }}</span>
+            <span class="product-price">
+                {{ \Tir\Store\Product\Support\Price::render($product) }}
+            </span>
 
             <p>{{ $product->short_description }}</p>
         </div>
 
         <div class="product-card-buttons">
-            <form method="POST" action="{{ route('wishlist.store') }}">
+{{--            <form method="POST" action="{{ route('wishlist.store') }}">--}}
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -41,9 +43,9 @@
                 <button type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('storefront::product_card.add_to_wishlist') }}" class="btn btn-wishlist">
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
-            </form>
+{{--            </form>--}}
 
-            <form method="POST" action="{{ route('compare.store') }}">
+{{--            <form method="POST" action="{{ route('compare.store') }}">--}}
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -51,14 +53,14 @@
                 <button type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('storefront::product_card.add_to_compare') }}" class="btn btn-compare">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                 </button>
-            </form>
+{{--            </form>--}}
 
             @if ($product->options_count > 0)
                 <a href="{{ route('products.show', ['slug' => $product->slug]) }}" class="btn btn-primary">
                     {{ trans('storefront::product_card.view_details') }}
                 </a>
             @else
-                <form method="POST" action="{{ route('cart.items.store') }}">
+{{--                <form method="POST" action="{{ route('cart.items.store') }}">--}}
                     {{ csrf_field() }}
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -67,7 +69,7 @@
                     <button type="submit" class="add-to-cart btn btn-primary" {{ $product->isOutOfStock() ? 'disabled' : '' }} data-loading>
                         {{ trans('storefront::product_card.add_to_cart') }}
                     </button>
-                </form>
+{{--                </form>--}}
             @endif
         </div>
     </div>

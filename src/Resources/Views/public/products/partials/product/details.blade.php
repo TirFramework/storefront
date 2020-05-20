@@ -2,13 +2,15 @@
     <div class="product-details">
         <h1 class="product-name">{{ $product->name }}</h1>
 
-{{--        @if (Stg::get('reviews_enabled'))--}}
-{{--            @include('public.products.partials.product.rating', ['rating' => $product->avgRating()])--}}
+        @if (Stg::get('reviews_enabled'))
+            @include('storefront::public.products.partials.product.rating', ['rating' => $product->avgRating()])
 
-{{--            <span class="product-review">--}}
-{{--                ({{ intl_number($product->reviews->count()) }} {{ trans('storefront::product.customer_reviews') }})--}}
-{{--            </span>--}}
-{{--        @endif--}}
+            <span class="product-review">
+                {{-- TODO:Check intl_number Function --}}
+                {{-- ({{ intl_number($product->reviews->count()) }} {{ trans('storefront::product.customer_reviews') }})--}}
+                ({{ $product->reviews->count() }} {{ trans('storefront::product.customer_reviews') }})
+            </span>
+        @endif
 
         @unless (is_null($product->sku))
             <div class="sku">
@@ -20,7 +22,8 @@
         @if ($product->manage_stock)
             <span class="left-in-stock">
                 {{ trans('storefront::product.only') }}
-{{--                <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ intl_number($product->qty) }}</span>--}}
+                {{-- TODO:Check intl_number Function --}}
+                {{-- <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ intl_number($product->qty) }}</span>--}}
                 <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ $product->qty }}</span>
                 {{ trans('storefront::product.left') }}
             </span>
