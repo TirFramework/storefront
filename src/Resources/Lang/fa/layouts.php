@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'default' => 'Default',
-    'slider_with_banners' => 'Slider With Banners',
+    'default' => 'پیشفرض',
+    'slider_with_banners' => 'اسلایدر با بنر',
 ];

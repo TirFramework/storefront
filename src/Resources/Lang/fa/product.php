@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'customer_reviews' => 'customer reviews',
+    'customer_reviews' => 'دیدگاه‌های کاربران',
     'sku' => 'SKU',
-    'only' => 'Only',
-    'left' => 'left',
-    'qty' => 'Qty',
-    'availability' => 'Availability',
+    'only' => 'فقط',
+    'left' => 'چپ',
+    'qty' => 'تعداد',
+    'availability' => 'موجودی',
     'in_stock' => 'In Stock',
     'out_of_stock' => 'Out of Stock',
     'add_to_cart' => 'Add to cart',

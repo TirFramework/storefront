@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'your_order_has_been_placed' => 'Your order has been placed!',
-    'order_id' => 'Your order id is',
-    'thanks' => 'Thanks for shopping with us.',
+    'your_order_has_been_placed' => 'سفارش شما ثبت شده است !',
+    'order_id' => 'شمار سفارش شما',
+    'thanks' => 'از اینکه از ما خرید کردید سپاسگزاریم',
 ];

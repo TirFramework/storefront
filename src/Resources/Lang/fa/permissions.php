@@ -2,6 +2,6 @@
 
 return [
     'storefront' => [
-        'edit' => 'Edit Storefront Settings',
+        'edit' => 'ویراش استور فرانت',
     ],
 ];
