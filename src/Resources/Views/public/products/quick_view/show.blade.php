@@ -6,19 +6,19 @@
     <div class="col-md-4 col-sm-7">
         <div class="quick-view-image">
             <div class="base-image">
-                @if (! $product->base_image->exists)
+                @if (! $product->image)
                     <div class="image-placeholder">
                         <i class="fa fa-picture-o"></i>
                     </div>
                 @else
-                    <a class="base-image-inner" href="{{ $product->base_image->path }}">
-                        <img src="{{ $product->base_image->path }}">
+                    <a class="base-image-inner" href="{{ $product->image }}">
+                        <img src="{{ $product->image }}">
 
                         <span><i class="fa fa-search-plus" aria-hidden="true"></i></span>
                     </a>
                 @endif
 
-                @foreach ($product->additional_images as $additionalImage)
+                @foreach ($product->additionalImages as $additionalImage)
                     @if (! $additionalImage->exists)
                         <div class="image-placeholder">
                             <i class="fa fa-picture-o"></i>
@@ -34,24 +34,24 @@
             </div>
 
             <div class="additional-image">
-                @if (! $product->base_image->exists)
+                @if (! $product->image)
                     <div class="image-placeholder">
                         <i class="fa fa-picture-o"></i>
                     </div>
                 @else
                     <div class="thumb-image">
-                        <img src="{{ $product->base_image->path }}">
+                        <img src="{{ $product->image }}">
                     </div>
                 @endif
 
-                @foreach ($product->additional_images as $additionalImage)
-                    @if (! $additionalImage->exists)
+                @foreach ($product->additionalImages as $additionalImage)
+                    @if (! $additionalImage)
                         <div class="image-placeholder">
                             <i class="fa fa-picture-o"></i>
                         </div>
                     @else
                         <div class="thumb-image">
-                            <img src="{{ $additionalImage->path }}">
+                            <img src="{{ $additionalImage}}">
                         </div>
                     @endif
                 @endforeach
@@ -64,11 +64,11 @@
             <div class="product-details text-left">
                 <h2 class="product-name">{{ $product->name }}</h2>
 
-                @if (setting('reviews_enabled'))
-                    @include('public.products.partials.product.rating', ['rating' => $product->avgRating()])
+                @if (Stg::get('reviews_enabled'))
+                    @include('storefront::public.products.partials.product.rating', ['rating' => $product->avgRating()])
 
                     <span class="product-review">
-                        ({{ intl_number($product->reviews->count()) }} {{ trans('storefront::product.customer_reviews') }})
+                        ({{ $product->reviews->count() }} {{ trans('storefront::product.customer_reviews') }})
                     </span>
                 @endif
 
@@ -82,14 +82,14 @@
                 @if ($product->manage_stock)
                     <span class="left-in-stock">
                         {{ trans('storefront::product.only') }}
-                        <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ intl_number($product->qty) }}</span>
+                        <span class="{{ $product->qty > 0 ? 'green' : 'red' }}">{{ $product->qty }}</span>
                         {{ trans('storefront::product.left') }}
                     </span>
                 @endif
 
                 <div class="clearfix"></div>
 
-                <h4 class="product-price pull-left">{{ product_price($product) }}</h4>
+                <h4 class="product-price pull-left">{{ \Tir\Store\Product\Support\Price::render($product) }}</h4>
 
                 <div class="availability pull-left">
                     <label>{{ trans('storefront::product.availability') }}:</label>
@@ -107,7 +107,7 @@
                     <div class="product-brief">{{ $product->short_description }}</div>
                 @endif
 
-                <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">
+{{--                <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">--}}
                     {{ csrf_field() }}
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -143,7 +143,7 @@
                 <div class="clearfix"></div>
 
                 <div class="add-to clearfix">
-                    <form method="POST" action="{{ route('compare.store') }}">
+{{--                    <form method="POST" action="{{ route('compare.store') }}">--}}
                         {{ csrf_field() }}
 
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -151,7 +151,7 @@
                         <button type="submit">{{ trans('storefront::product.add_to_compare') }}</button>
                     </form>
 
-                    <form method="POST" action="{{ route('wishlist.store') }}">
+{{--                    <form method="POST" action="{{ route('wishlist.store') }}">--}}
                         {{ csrf_field() }}
 
                         <input type="hidden" name="product_id" value="{{ $product->id }}">

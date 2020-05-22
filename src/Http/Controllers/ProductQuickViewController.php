@@ -1,9 +1,10 @@
 <?php
 
-namespace Themes\Storefront\Http\Controllers;
+namespace Tir\Storefront\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Modules\Product\Entities\Product;
+use Tir\Setting\Facades\Stg;
+use Tir\Store\Product\Entities\Product;
 
 class ProductQuickViewController extends Controller
 {
@@ -11,16 +12,17 @@ class ProductQuickViewController extends Controller
      * Display the specified resource.
      *
      * @param string $slug
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($slug)
     {
         $product = Product::findBySlug($slug);
 
-        if (setting('reviews_enabled')) {
+        if (Stg::get('reviews_enabled')) {
             $product->load('reviews:product_id,rating');
         }
 
-        return view('public.products.quick_view.show', compact('product'));
+
+        return view(config('crud.front-template').'::public.products.quick_view.show', compact('product'));
     }
 }
