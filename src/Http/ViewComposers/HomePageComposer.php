@@ -6,6 +6,8 @@ use Illuminate\Support\Collection;
 use Tir\Setting\Facades\Stg;
 use Tir\Slider\Entities\Slider;
 use Tir\Store\Product\Entities\Product;
+use Illuminate\Support\Facades\Cache;
+
 
 
 class HomePageComposer

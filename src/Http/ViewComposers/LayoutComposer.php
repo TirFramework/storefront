@@ -11,10 +11,15 @@ namespace Tir\Storefront\Http\ViewComposers;
 //use Illuminate\Support\Facades\Cache;
 //use Modules\Category\Entities\Category;
 
+
+use Tir\Crud\Support\Facades\Crud;
+use Tir\Menu\Entities\Menu;
 use Tir\Menu\MegaMenu\MegaMenu;
 use Tir\Setting\Facades\Stg;
 use Tir\Store\Category\Entities\Category;
 use Tir\Storefront\Facades\Stf;
+use Illuminate\Support\Facades\Cache;
+
 
 class LayoutComposer
 {
@@ -33,12 +38,14 @@ class LayoutComposer
             'primaryMenu' => $this->getPrimaryMenu(),
             'shouldExpandCategoryMenu' => $this->getShouldExpandCategoryMenu(),
 
-
+            'headerLogo' => $this->getHeaderLogo(),
+            'footerLogo' => $this->getFooterLogo(),
+            'footerMenu' => $this->getFooterMenu(),
+            'socialLinks' => $this->getSocialLinks(),
+            'copyrightText' => $this->getCopyrightText(),
+//
             'theme' => 'theme-blue',
-            'headerLogo' => null,
-            'footerLogo' => null,
-            'socialLinks' => null,
-            'copyrightText' => null,
+
 
         ]);
 
@@ -46,17 +53,10 @@ class LayoutComposer
 //            'theme' => $this->getTheme(),
 //            'compareCount' => resolve(Compare::class)->count(),
 //            'favicon' => $this->getFavicon(),
-//            'headerLogo' => $this->getHeaderLogo(),
-//            'categories' => $this->getCategories(),
-//            'primaryMenu' => $this->getPrimaryMenu(),
-//            'categoryMenu' => $this->getCategoryMenu(),
 //            'cart' => $this->getCart(),
 //            'shouldExpandCategoryMenu' => $this->getShouldExpandCategoryMenu(),
 //            'brands' => $this->getBrands(),
-//            'footerLogo' => $this->getFooterLogo(),
-//            'footerMenu' => $this->getFooterMenu(),
-//            'socialLinks' => $this->getSocialLinks(),
-//            'copyrightText' => $this->getCopyrightText(),
+
 //        ]);
     }
 
@@ -139,7 +139,7 @@ class LayoutComposer
         $menuId = Stg::get('storefront_footer_menu');
 
         return Cache::tags(['menu_items', 'categories', 'pages', 'settings'])
-            ->rememberForever("storefront_footer_menu.{$menuId}:" . locale(), function () use ($menuId) {
+            ->rememberForever("storefront_footer_menu.{$menuId}:" . Crud::locale(), function () use ($menuId) {
                 return Menu::for($menuId);
             });
     }

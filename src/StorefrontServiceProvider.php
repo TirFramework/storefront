@@ -35,6 +35,7 @@ class StorefrontServiceProvider extends ServiceProvider
         View::composer('storefront::public.products.partials.filter', ProductsFilterComposer::class);
 
 
+       $this->loadRoutesFrom(__DIR__.'/Routes/admin.php');
        $this->loadRoutesFrom(__DIR__.'/Routes/public.php');
 
 
