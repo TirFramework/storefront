@@ -12,7 +12,7 @@ return [
     'remove' => 'حذف',
     'apply_coupon' => 'اعمال کوپن تخفیف',
     'cart_totals' => 'مجموع سبد خرید',
-    'subtotal' => 'Subtotal',
+    'subtotal' => 'جمع کل',
     'coupon' => 'کوپن',
     'checkout' => 'تصفیه حساب',
     'no_shipping_method_is_available' => 'هیچ روش ارسالی وجود ندارد',

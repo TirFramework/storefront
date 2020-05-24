@@ -15,7 +15,7 @@ return [
     'unit_price' => 'واحد قیمت',
     'quantity' => 'تعداد',
     'line_total' => 'Line Total',
-    'subtotal' => 'Subtotal',
+    'subtotal' => 'جمع کل',
     'coupon' => 'کوپن',
     'total' => 'مجموع',
 ];
