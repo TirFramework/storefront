@@ -103,7 +103,6 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'      => 'storefront_theme',
                                 'type'      => 'select',
-                                'multiple'  => true,
                                 'data'      =>  ['blue'=>'Blue','red'=>'red'],
                                 'visible'   => 'ice',
                             ],
@@ -187,28 +186,17 @@ class StorefrontSetting extends CrudModel
                         'fields' => [
 
                             [
-                                'name'      => 'storefront_primary_menu',
+                                'name'      => 'translatable[storefront_primary_menu]',
                                 'type'      => 'select',
                                 'data'      => Menu::select('*')->get()->pluck('name','id'),
                                 'visible'   => 'ce',
                             ],
                             [
-                                'name'      => 'translatable[storefront_category_menu_title]',
+                                'name'      => 'translatable[storefront_category_menu]',
                                 'type'      => 'select',
                                 'data'      => Menu::select('*')->get()->pluck('name','id'),
                                 'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'translatable[storefront_footer_logo]',
-                                'type'      => 'image',
-                                'visible'   => 'ce',
-                            ],
-                            [
-                                'name'      => 'translatable[storefront_mail_logo]',
-                                'type'      => 'image',
-                                'visible'   => 'ce',
-                            ],
-
+                            ]
                         ]
                     ]
                 ]
