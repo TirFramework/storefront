@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'quick_view' => 'Quick View',
-    'view_details' => 'View Details',
-    'add_to_cart' => 'Add to Cart',
-    'out_of_stock' => 'Out of Stock',
-    'new' => 'New',
-    'add_to_wishlist' => 'Add to Wishlist',
-    'add_to_compare' => 'Add to Compare',
+    'quick_view' => 'مشاهده سریع',
+    'view_details' => 'مشاهده جزئیات',
+    'add_to_cart' => 'اضافه کردن به سبد خرید',
+    'out_of_stock' => 'ناموجود',
+    'new' => 'جدید',
+    'add_to_wishlist' => 'اضافه کردن به علاقه‌مندی‌ها',
+    'add_to_compare' => 'مقایسه',
 ];

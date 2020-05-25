@@ -8,7 +8,7 @@ return [
     'confirm' => 'تایید',
     'i_agree_to_the' => 'من موافقم با',
     'terms_and_conditions' => 'شرایط و ضوابط',
-    'place_order' => 'Place Order',
+    'place_order' => 'ترتیب سفارش',
     'continue' => 'ادامه',
     'back' => 'بازگشت',
     'tabs' => [
