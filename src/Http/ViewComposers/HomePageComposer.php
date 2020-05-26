@@ -3,6 +3,7 @@
 namespace Tir\Storefront\Http\ViewComposers;
 
 use Illuminate\Support\Collection;
+use Tir\Storefront\Entities\Banner;
 use Tir\Setting\Facades\Stg;
 use Tir\Slider\Entities\Slider;
 use Tir\Store\Product\Entities\Product;
@@ -42,15 +43,16 @@ class HomePageComposer
             'features' => $this->getFeatures(),
             'carouselProducts' => $this->getCarouselProducts(),
             'recentProducts' => $this->getRecentProducts(),
+            'sliderBanners' => Banner::allForSliderBanners(),
+            'bannerSectionOneBanners' => $this->getBannerSectionOneBanners(),
+            'bannerSectionTwoBanner' => $this->getBannerSectionTwoBanner(),
 
 
         ]);
 
 /*        $view->with([
             //'slider' => Slider::findWithSlides(Stg::get('storefront_slider')),
-            'sliderBanners' => Banner::allForSliderBanners(),
             'bannerSectionOneBanners' => $this->getBannerSectionOneBanners(),
-            'features' => $this->getFeatures(),
             'carouselProducts' => $this->getCarouselProducts(),
             'recentProducts' => $this->getRecentProducts(),
             'bannerSectionTwoBanner' => $this->getBannerSectionTwoBanner(),

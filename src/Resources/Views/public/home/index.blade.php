@@ -30,9 +30,9 @@
         @include('storefront::public.home.sections.features')
     @endif
 
-{{--    @if (Stg::get('storefront_banner_section_1_enabled'))--}}
-{{--        @include('storefront::public.home.sections.banner_section_1')--}}
-{{--    @endif--}}
+    @if (Stg::get('storefront_banner_section_1_enabled'))
+        @include('storefront::public.home.sections.banner_section_1')
+    @endif
 
     @if (Stg::get('storefront_product_carousel_section_enabled'))
         @include('storefront::public.home.sections.product_carousel', [

@@ -9,9 +9,9 @@ return [
     'availability' => 'موجودی',
     'in_stock' => 'موجود',
     'out_of_stock' => 'ناموجود',
-    'add_to_cart' => 'اضافه کردن به سبد خرید',
-    'add_to_wishlist' => '+ اضافه کردن به علاقه‌مندی‌ها',
-    'add_to_compare' => '+ اضافه کردن به علاقه‌مندی‌ها',
+    'add_to_cart' => 'افزودن به سبد خرید',
+    'add_to_wishlist' => '+ افزودن به علاقه‌مندی‌ها',
+    'add_to_compare' => '+ افزودن به مقایسه',
     'options' => [
         'choose_an_option' => 'انتخاب',
     ],

@@ -2,12 +2,14 @@
 
 namespace Tir\Storefront\Facades;
 
+use Tir\Setting\Facades\Stg;
+
 class Stf
 {
 
     public static function layout()
     {
-        return 'default';
+        return Stg::get('storefront_layout');
     }
 
     /**

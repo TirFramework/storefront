@@ -1,4 +1,4 @@
-<a href="{{ $banner->call_to_action_url }}" class="banner {{ $class ?? '' }}" style="background-image: url({{ $banner->image->path }});" target="{{ $banner->open_in_new_window ? '_blank' : '_self' }}">
+<a href="{{ $banner->call_to_action_url }}" class="banner {{ $class ?? '' }}" style="background-image: url({{ $banner->image }});" target="{{ $banner->open_in_new_window ? '_blank' : '_self' }}">
     <div class="overlay"></div>
 
     <div class="display-table">
