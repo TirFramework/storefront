@@ -46,23 +46,19 @@ class HomePageComposer
             'sliderBanners' => Banner::allForSliderBanners(),
             'bannerSectionOneBanners' => $this->getBannerSectionOneBanners(),
             'bannerSectionTwoBanner' => $this->getBannerSectionTwoBanner(),
-
-
-        ]);
-
-/*        $view->with([
-            //'slider' => Slider::findWithSlides(Stg::get('storefront_slider')),
-            'bannerSectionOneBanners' => $this->getBannerSectionOneBanners(),
-            'carouselProducts' => $this->getCarouselProducts(),
-            'recentProducts' => $this->getRecentProducts(),
-            'bannerSectionTwoBanner' => $this->getBannerSectionTwoBanner(),
             'threeColumnCarouselProducts' => $this->getThreeColumnCarouselProducts(),
             'landscapeProducts' => $this->getLandscapeProducts(),
             'bannerSectionThreeBanners' => $this->getBannerSectionThreeBanners(),
             'tabProducts' => $this->getTabProducts(),
             'twoColumnCarouselProducts' => $this->getTwoColumnCarouselProducts(),
-            'recentlyViewedProducts' => $this->getRecentlyViewedProducts(),
-        ]);*/
+
+//            'recentlyViewedProducts' => $this->getRecentlyViewedProducts(),
+
+
+
+
+        ]);
+
     }
 
     private function getBannerSectionOneBanners()

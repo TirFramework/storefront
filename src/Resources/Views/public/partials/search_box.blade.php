@@ -1,6 +1,5 @@
 <div class="search-area pull-left">
-    <form action="" method="GET" id="search-box-form">
-{{--    <form action="{{ route('products.index') }}" method="GET" id="search-box-form">--}}
+    <form action="{{route('products.index')}}" method="GET" id="search-box-form">
         <div class="search-box hidden-sm hidden-xs">
             <input type="text" name="query" class="search-box-input" placeholder="{{ trans('storefront::layout.search_for_products') }}" value="{{ request('query') }}">
 

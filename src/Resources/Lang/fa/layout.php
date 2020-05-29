@@ -18,6 +18,6 @@ return [
         'view_cart' => 'نمایش سبد خرید',
         'checkout' => 'پرداخت',
     ],
-    'cookie_bar_text' => 'The website uses cookies to ensure you get the best experience on our website.',
+    'cookie_bar_text' => 'برای سرویس‌دهی بهتر این ما از کوکی‌ها استفاده می‌کنیم.',
     'got_it' => 'باشه اشکالی ندارد',
 ];

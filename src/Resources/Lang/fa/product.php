@@ -3,8 +3,8 @@
 return [
     'customer_reviews' => 'دیدگاه‌های کاربران',
     'sku' => 'SKU',
-    'only' => 'فقط',
-    'left' => 'چپ',
+    'only' => 'فقط یک عدد ',
+    'left' => 'باقی مانده',
     'qty' => 'تعداد',
     'availability' => 'موجودی',
     'in_stock' => 'موجود',

@@ -8,7 +8,7 @@
             <div class="landscape-products slick-arrow separator">
                 @foreach ($products as $product)
                     <div class="col-md-4">
-                        @include('public.products.partials.single_product')
+                        @include('storefront::public.products.partials.single_product')
                     </div>
                 @endforeach
             </div>

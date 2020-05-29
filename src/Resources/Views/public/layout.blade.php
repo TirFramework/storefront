@@ -20,6 +20,7 @@
 
         @if (Crud::is_rtl())
             <link rel="stylesheet" href="{{ Crud::version(url('themes/storefront/public/css/app.rtl.css')) }}">
+            <link rel="stylesheet" href="{{ Crud::version(url('themes/storefront/public/css/custom.css')) }}">
         @else
             <link rel="stylesheet" href="{{ Crud::version(url('themes/storefront/public/css/app.css')) }}">
         @endif
@@ -42,6 +43,7 @@
 
         @stack('globals')
 
+        {{--//TODO:remove admin route--}}
         @routes
     </head>
 

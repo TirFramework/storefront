@@ -37,10 +37,16 @@ class ProductsFilterComposer
 
         return Attribute::with('values')
             ->where('is_filterable', true)
+            ->Has('categories')
+            ->get();
+
+        //Original code
+        /*  return Attribute::with('values')
+            ->where('is_filterable', true)
             ->whereHas('categories', function ($query) use ($view) {
                 $query->whereIn('id', $this->getProductsCategoryIds($view));
             })
-            ->get();
+            ->get();*/
     }
 
     public static function filteringViaRootCategory()

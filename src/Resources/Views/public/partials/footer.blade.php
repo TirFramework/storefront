@@ -58,45 +58,45 @@
 {{--                                    <li><a href="{{ route('account.profile.edit') }}">{{ trans('storefront::account.links.my_profile') }}</a></li>--}}
 
                                     @auth
-{{--                                        <li><a href="{{ route('logout') }}">{{ trans('storefront::account.links.logout') }}</a></li>--}}
+                                        <li><a href="{{ route('logout') }}">{{ trans('storefront::account.links.logout') }}</a></li>
                                     @endauth
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-{{--                    @if ($footerMenu->isNotEmpty())--}}
-{{--                        <div class="col-sm-6">--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="links">--}}
-{{--                                    <div class="mobile-collapse">--}}
-{{--                                        <h4>{{ stg::get('storefront_footer_menu_title') }}</h4>--}}
-{{--                                    </div>--}}
+                    @if ($footerMenu->isNotEmpty())
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="links">
+                                    <div class="mobile-collapse">
+                                        <h4>{{ stg::get('storefront_footer_menu_title') }}</h4>
+                                    </div>
 
-{{--                                    <ul class="list-inline">--}}
-{{--                                        @foreach ($footerMenu as $menuItem)--}}
-{{--                                            <li><a href="{{ $menuItem->url() }}">{{ $menuItem->name }}</a></li>--}}
-{{--                                        @endforeach--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
+                                    <ul class="list-inline">
+                                        @foreach ($footerMenu as $menuItem)
+                                            <li><a href="{{ $menuItem->url() }}">{{ $menuItem->name }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
 
-{{--        @if ($socialLinks->isNotEmpty())--}}
-{{--            <div class="footer-middle p-tb-30 clearfix">--}}
-{{--                <ul class="social-links list-inline">--}}
-{{--                    @foreach ($socialLinks as $icon => $link)--}}
-{{--                        @if (! is_null($link))--}}
-{{--                            <li><a href="{{ $link }}"><i class="fa fa-{{ $icon }}" aria-hidden="true"></i></a></li>--}}
-{{--                        @endif--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        @endif--}}
+        @if ($socialLinks->isNotEmpty())
+            <div class="footer-middle p-tb-30 clearfix">
+                <ul class="social-links list-inline">
+                    @foreach ($socialLinks as $icon => $link)
+                        @if (! is_null($link))
+                            <li><a href="{{ $link }}"><i class="fa fa-{{ $icon }}" aria-hidden="true"></i></a></li>
+                        @endif
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 
     <div class="footer-bottom p-tb-20 clearfix">

@@ -1,4 +1,4 @@
-<a href="{{ $bannerSectionTwoBanner->call_to_action_url }}" class="banner banner-lg" style="background-image: url({{ $bannerSectionTwoBanner->image->path }});" target="{{ $bannerSectionTwoBanner->open_in_new_window ? '_blank' : '_self' }}">
+<a href="{{ $bannerSectionTwoBanner->call_to_action_url }}" class="banner banner-lg" style="background-image: url({{ $bannerSectionTwoBanner->image }});" target="{{ $bannerSectionTwoBanner->open_in_new_window ? '_blank' : '_self' }}">
     <div class="overlay"></div>
 
     <div class="display-table">
