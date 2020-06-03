@@ -35,18 +35,26 @@ class ProductsFilterComposer
             return [];
         }
 
-        return Attribute::with('values')
-            ->where('is_filterable', true)
-            ->Has('categories')
-            ->get();
+
+        if(isset($categorySlug)){
+            return Attribute::with('values')
+                ->where('is_filterable', true)
+                ->whereHas('categories', function ($query) use ($view) {
+                    $query->where('id', $this->getCategoryId($categorySlug));
+                })->get();
+
+        }
+        return [];
+
 
         //Original code
-        /*  return Attribute::with('values')
-            ->where('is_filterable', true)
-            ->whereHas('categories', function ($query) use ($view) {
-                $query->whereIn('id', $this->getProductsCategoryIds($view));
-            })
-            ->get();*/
+        /*          return Attribute::with('values')
+                    ->where('is_filterable', true)
+                    ->whereHas('categories', function ($query) use ($view) {
+                        $query->whereIn('id', $this->getProductsCategoryIds($view));
+                    })
+                    ->get();
+            }*/
     }
 
     public static function filteringViaRootCategory()
@@ -54,6 +62,12 @@ class ProductsFilterComposer
         return Category::whereTranslation('name', request('category'))
             ->firstOrNew([])
             ->isRoot();
+    }
+
+    private function getCategoryId($categorySlug)
+    {
+        return Category::select('id','slug')->where('slug',$categorySlug)->first()->id;
+
     }
 
     private function getProductsCategoryIds($view)

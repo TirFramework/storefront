@@ -49,8 +49,7 @@
             <div class="product-brief">{{ $product->short_description }}</div>
         @endif
 
-{{--        <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">--}}
-        <form method="POST" action="" class="clearfix">
+        <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">
             {{ csrf_field() }}
 
             <input type="hidden" name="product_id" value="{{ $product->id }}">

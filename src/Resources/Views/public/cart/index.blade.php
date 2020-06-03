@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title', trans('storefront::cart.cart'))
 
@@ -25,13 +25,13 @@
                                         @foreach ($cart->items() as $cartItem)
                                             <tr class="cart-item">
                                                 <td>
-                                                    @if (! $cartItem->product->base_image->exists)
+                                                    @if (! $cartItem->product)
                                                         <div class="image-placeholder">
                                                             <i class="fa fa-picture-o" aria-hidden="true"></i>
                                                         </div>
                                                     @else
                                                         <div class="image-holder">
-                                                            <img src="{{ $cartItem->product->base_image->path }}">
+                                                            <img src="{{ $cartItem->product->base_image }}">
                                                         </div>
                                                     @endif
                                                 </td>
@@ -50,7 +50,8 @@
 
                                                 <td>
                                                     <label>{{ trans('storefront::cart.price') }}:</label>
-                                                    <span>{{ $cartItem->unitPrice()->convertToCurrentCurrency()->format() }}</span>
+{{--                                                    <span>{{ $cartItem->unitPrice()->convertToCurrentCurrency()->format() }}</span>--}}
+                                                    <span>{{ number_format($cartItem->unitPrice()) }}</span>
                                                 </td>
 
                                                 <td class="clearfix">
@@ -68,7 +69,8 @@
 
                                                 <td>
                                                     <label>{{ trans('storefront::cart.total') }}:</label>
-                                                    <span>{{ $cartItem->total()->convertToCurrentCurrency()->format() }}</span>
+{{--                                                    <span>{{ $cartItem->total()->convertToCurrentCurrency()->format() }}</span>--}}
+                                                    <span>{{ number_format($cartItem->total()) }}</span>
                                                 </td>
 
                                                 <td>
@@ -92,19 +94,20 @@
                             </div>
                         </div>
 
-                        <div class="cart-list-bottom">
-                            <form method="POST" action="{{ route('cart.coupon.store') }}" id="coupon-apply-form" class="clearfix">
-                                {{ csrf_field() }}
+{{--                        <div class="cart-list-bottom">--}}
+{{--                            <form method="POST" action="{{ route('cart.coupon.store') }}" id="coupon-apply-form" class="clearfix">--}}
+{{--                            <form method="POST" action="" id="coupon-apply-form" class="clearfix">--}}
+{{--                                {{ csrf_field() }}--}}
 
-                                <div class="form-group pull-left">
-                                    <input type="text" name="coupon" class="form-control" id="coupon" value="{{ old('coupon') }}">
+{{--                                <div class="form-group pull-left">--}}
+{{--                                    <input type="text" name="coupon" class="form-control" id="coupon" value="{{ old('coupon') }}">--}}
 
-                                    <button type="submit" class="btn btn-primary" id="coupon-apply-submit" data-loading>
-                                        {{ trans('storefront::cart.apply_coupon') }}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+{{--                                    <button type="submit" class="btn btn-primary" id="coupon-apply-submit" data-loading>--}}
+{{--                                        {{ trans('storefront::cart.apply_coupon') }}--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
 
@@ -115,10 +118,11 @@
 
                             <span class="item-amount">
                                 {{ trans('storefront::cart.subtotal') }}
-                                <span>{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>
+{{--                                <span>{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>--}}
+                                <span>{{ number_format($cart->subTotal()) }}</span>
                             </span>
 
-                            @if ($cart->hasAvailableShippingMethod())
+{{--                            @if ($cart->hasAvailableShippingMethod())
                                 <div class="available-shipping-methods">
                                     <span>{{ trans('storefront::cart.shipping_method') }}</span>
 
@@ -152,18 +156,20 @@
                                     {{ $tax->name() }}
                                     <span>{{ $tax->amount()->convertToCurrentCurrency()->format() }}</span>
                                 </span>
-                            @endforeach
+                            @endforeach--}}
 
                             <span class="total">
                                 {{ trans('storefront::cart.total') }}
-                                <span id="total-amount">{{ $cart->total()->convertToCurrentCurrency()->format() }}</span>
+{{--                                <span id="total-amount">{{ $cart->total()->convertToCurrentCurrency()->format() }}</span>--}}
+                                <span id="total-amount">{{  number_format($cart->total()) }}</span>
                             </span>
 
-                            @if ($cart->hasNoAvailableShippingMethod())
+{{--                            @if ($cart->hasNoAvailableShippingMethod())
                                 <span class="error-message text-center">{{ trans('storefront::cart.no_shipping_method_is_available') }}</span>
-                            @endif
+                            @endif--}}
 
-                            <a href="{{ route('checkout.create') }}" class="btn btn-primary btn-checkout {{ $cart->hasNoAvailableShippingMethod() ? 'disabled' : '' }}" data-loading>
+{{--                            <a href="{{ route('checkout.create') }}" class="btn btn-primary btn-checkout {{ $cart->hasNoAvailableShippingMethod() ? 'disabled' : '' }}" data-loading>--}}
+                            <a href="" class="btn btn-primary btn-checkout" data-loading>
                                 {{ trans('storefront::cart.checkout') }}
                             </a>
                         </div>
@@ -173,8 +179,8 @@
         </div>
     </div>
 
-    @include('public.products.partials.landscape_products', [
-        'title' => trans('storefront::product.you_might_also_like'),
-        'products' => $cart->crossSellProducts()
-    ])
+{{--    @include('public.products.partials.landscape_products', [--}}
+{{--        'title' => trans('storefront::product.you_might_also_like'),--}}
+{{--        'products' => $cart->crossSellProducts()--}}
+{{--    ])--}}
 @endsection

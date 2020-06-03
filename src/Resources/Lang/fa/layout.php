@@ -14,7 +14,7 @@ return [
         'my_cart' => 'سبد خرید من',
         'your_cart_is_empty' => 'سبد خرید شما خالی است',
         'remove' => 'حذف',
-        'subtotal' => 'Subtotal:',
+        'subtotal' => 'مجموع:',
         'view_cart' => 'نمایش سبد خرید',
         'checkout' => 'پرداخت',
     ],

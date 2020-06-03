@@ -72,6 +72,7 @@
         @include('storefront::public.home.sections.two_column_product_carousel')
     @endif
 
+{{--    //Todo:: reset product --}}
 {{--    @if (Stg::get('storefront_recently_viewed_section_enabled'))--}}
 {{--        @include('storefront::public.products.partials.landscape_products', [--}}
 {{--            'title' => Stg::get('storefront_recently_viewed_section_title'),--}}

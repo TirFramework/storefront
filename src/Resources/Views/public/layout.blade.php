@@ -46,7 +46,6 @@
         {{--//TODO:remove admin route--}}
         @routes
     </head>
-
     <body class="{{ $theme }} {{ Stf::layout() }} {{ Crud::is_rtl() ? 'rtl' : 'ltr' }}">
         <!--[if lt IE 8]>
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -96,23 +95,23 @@
                 </a>
             </div>
 
-            @unless (json_decode(Cookie::get('cookie_bar_accepted')))
-                <div class="cookie-bar-wrapper">
-                    <div class="container">
-                        <div class="cookie clearfix">
-                            <div class="cookie-text">
-                                <span>{{ trans('storefront::layout.cookie_bar_text') }}</span>
-                            </div>
+{{--            @unless (json_decode(Cookie::get('cookie_bar_accepted')))--}}
+{{--                <div class="cookie-bar-wrapper">--}}
+{{--                    <div class="container">--}}
+{{--                        <div class="cookie clearfix">--}}
+{{--                            <div class="cookie-text">--}}
+{{--                                <span>{{ trans('storefront::layout.cookie_bar_text') }}</span>--}}
+{{--                            </div>--}}
 
-                            <div class="cookie-button">
-                                <button type="submit" class="btn btn-primary btn-cookie">
-                                    {{ trans('storefront::layout.got_it') }}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endunless
+{{--                            <div class="cookie-button">--}}
+{{--                                <button type="submit" class="btn btn-primary btn-cookie">--}}
+{{--                                    {{ trans('storefront::layout.got_it') }}--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endunless--}}
         </div>
 
         @include('storefront::public.partials.quick_view_modal')

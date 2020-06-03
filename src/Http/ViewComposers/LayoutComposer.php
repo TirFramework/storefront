@@ -3,7 +3,6 @@
 namespace Tir\Storefront\Http\ViewComposers;
 
 //use Modules\Compare\Compare;
-//use Modules\Cart\Facades\Cart;
 //use Modules\Menu\Entities\Menu;
 //use Modules\Media\Entities\File;
 //use Illuminate\Support\Facades\DB;
@@ -19,6 +18,7 @@ use Tir\Setting\Facades\Stg;
 use Tir\Store\Category\Entities\Category;
 use Tir\Storefront\Facades\Stf;
 use Illuminate\Support\Facades\Cache;
+use Tir\Store\Cart\Facades\Cart;
 
 
 class LayoutComposer
@@ -43,7 +43,8 @@ class LayoutComposer
             'footerMenu' => $this->getFooterMenu(),
             'socialLinks' => $this->getSocialLinks(),
             'copyrightText' => $this->getCopyrightText(),
-//
+            'cart' => $this->getCart(),
+
             'theme' => 'theme-blue',
 
 
@@ -53,7 +54,6 @@ class LayoutComposer
 //            'theme' => $this->getTheme(),
 //            'compareCount' => resolve(Compare::class)->count(),
 //            'favicon' => $this->getFavicon(),
-//            'cart' => $this->getCart(),
 //            'shouldExpandCategoryMenu' => $this->getShouldExpandCategoryMenu(),
 //            'brands' => $this->getBrands(),
 
@@ -78,7 +78,6 @@ class LayoutComposer
     private function getLogo($key)
     {
         return Stg::get($key);
-       // return File::findOrNew(Stg::get($key))->path;
     }
 
     private function getCategories()

@@ -39,7 +39,7 @@ return [
         'unit_price' => 'واحد ارز',
         'quantity' => 'تعداد',
         'line_total' => 'Line Total',
-        'subtotal' => 'Subtotal',
+        'subtotal' => 'مجموع',
         'coupon' => 'کوپن',
         'total' => 'مجموع',
     ],

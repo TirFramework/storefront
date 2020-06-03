@@ -62,8 +62,7 @@
                     {{ trans('storefront::product_card.view_details') }}
                 </button>
             @else
-{{--                <form method="POST" action="{{ route('cart.items.store') }}">--}}
-                <form method="POST" action="#">
+                <form method="POST" action="{{ route('cart.items.store') }}">
                     {{ csrf_field() }}
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
