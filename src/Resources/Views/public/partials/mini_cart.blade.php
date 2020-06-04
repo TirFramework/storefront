@@ -9,8 +9,7 @@
                 <span class="cart-label">{{ trans('storefront::layout.mini_cart.my_cart') }}</span>
                 <br>
                 {{--   Todo:check cart subTotal --}}
-{{--                <span class="cart-price">{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>--}}
-                <span class="cart-price">{{ number_format($cart->subTotal())}}</span>
+                <span class="cart-price">{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>
             </div>
         </div>
 
@@ -25,12 +24,12 @@
                     @foreach ($cart->items() as $cartItem)
                         <div class="mini-cart-item clearfix">
                             <div class="mini-cart-image">
-                                @if (! $cartItem->product->base_image)
+                                @if (! $cartItem->product->image)
                                     <div class="image-placeholder">
                                         <i class="fa fa-picture-o"></i>
                                     </div>
                                 @else
-                                    <img src="{{ $cartItem->product->base_image }}">
+                                    <img src="{{$cartItem->product->image }}">
                                 @endif
                             </div>
 
@@ -62,8 +61,7 @@
                                 @endif
 
                                 <span class="product-price pull-right">
-{{--                                    {{ $cartItem->unitPrice()->convertToCurrentCurrency()->format() }}--}}
-                                    {{ number_format($cartItem->unitPrice()) }}
+                                    {{ $cartItem->unitPrice()->convertToCurrentCurrency()->format() }}
                                 </span>
 
                                 <span class="product-quantity pull-right">
@@ -87,8 +85,7 @@
             @unless ($cart->isEmpty())
                 <span class="subtotal">
                     {{--   Todo:check cart subTotal --}}
-{{--                    {{ trans('storefront::layout.mini_cart.subtotal') }} <span>{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>--}}
-                    {{ trans('storefront::layout.mini_cart.subtotal') }} <span>{{ number_format($cart->subTotal()) }}</span>
+                    {{ trans('storefront::layout.mini_cart.subtotal') }} <span>{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>
                 </span>
 
                 <div class="mini-cart-buttons text-center">
@@ -96,8 +93,7 @@
                         {{ trans('storefront::layout.mini_cart.view_cart') }}
                     </a>
 
-{{--                    <a href="{{ route('checkout.create') }}" class="btn btn-default btn-checkout">--}}
-                    <a href="" class="btn btn-default btn-checkout">
+                    <a href="{{ route('checkout.create') }}" class="btn btn-default btn-checkout">
                         {{ trans('storefront::layout.mini_cart.checkout') }}
                     </a>
                 </div>

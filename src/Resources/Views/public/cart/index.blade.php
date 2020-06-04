@@ -31,7 +31,7 @@
                                                         </div>
                                                     @else
                                                         <div class="image-holder">
-                                                            <img src="{{ $cartItem->product->base_image }}">
+                                                            <img src="{{ $cartItem->product->image }}">
                                                         </div>
                                                     @endif
                                                 </td>
@@ -50,8 +50,7 @@
 
                                                 <td>
                                                     <label>{{ trans('storefront::cart.price') }}:</label>
-{{--                                                    <span>{{ $cartItem->unitPrice()->convertToCurrentCurrency()->format() }}</span>--}}
-                                                    <span>{{ number_format($cartItem->unitPrice()) }}</span>
+                                                    <span>{{ $cartItem->unitPrice()->convertToCurrentCurrency()->format() }}</span>
                                                 </td>
 
                                                 <td class="clearfix">
@@ -69,8 +68,7 @@
 
                                                 <td>
                                                     <label>{{ trans('storefront::cart.total') }}:</label>
-{{--                                                    <span>{{ $cartItem->total()->convertToCurrentCurrency()->format() }}</span>--}}
-                                                    <span>{{ number_format($cartItem->total()) }}</span>
+                                                    <span>{{ $cartItem->total()->convertToCurrentCurrency()->format() }}</span>
                                                 </td>
 
                                                 <td>
@@ -94,20 +92,21 @@
                             </div>
                         </div>
 
-{{--                        <div class="cart-list-bottom">--}}
-{{--                            <form method="POST" action="{{ route('cart.coupon.store') }}" id="coupon-apply-form" class="clearfix">--}}
-{{--                            <form method="POST" action="" id="coupon-apply-form" class="clearfix">--}}
-{{--                                {{ csrf_field() }}--}}
+                        {{--Todo: Enable Coupuns--}}
+                        <div class="cart-list-bottom">
+                            <form method="POST" action="{{ route('cart.coupon.store') }}" id="coupon-apply-form" class="clearfix">
+                            <form method="POST" action="" id="coupon-apply-form" class="clearfix">
+                                {{ csrf_field() }}
 
-{{--                                <div class="form-group pull-left">--}}
-{{--                                    <input type="text" name="coupon" class="form-control" id="coupon" value="{{ old('coupon') }}">--}}
+                                <div class="form-group pull-left">
+                                    <input type="text" name="coupon" class="form-control" id="coupon" value="{{ old('coupon') }}">
 
-{{--                                    <button type="submit" class="btn btn-primary" id="coupon-apply-submit" data-loading>--}}
-{{--                                        {{ trans('storefront::cart.apply_coupon') }}--}}
-{{--                                    </button>--}}
-{{--                                </div>--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
+                                    <button type="submit" class="btn btn-primary" id="coupon-apply-submit" data-loading>
+                                        {{ trans('storefront::cart.apply_coupon') }}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -118,11 +117,10 @@
 
                             <span class="item-amount">
                                 {{ trans('storefront::cart.subtotal') }}
-{{--                                <span>{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>--}}
-                                <span>{{ number_format($cart->subTotal()) }}</span>
+                                <span>{{ $cart->subTotal()->convertToCurrentCurrency()->format() }}</span>
                             </span>
 
-{{--                            @if ($cart->hasAvailableShippingMethod())
+                            @if ($cart->hasAvailableShippingMethod())
                                 <div class="available-shipping-methods">
                                     <span>{{ trans('storefront::cart.shipping_method') }}</span>
 
@@ -144,32 +142,30 @@
                                 @endif
                             @endif
 
-                            @if ($cart->hasCoupon())
-                                <span class="item-amount">
-                                    {{ trans('storefront::cart.coupon') }} (<span class="coupon-code">{{ $cart->coupon()->code() }}</span>)
-                                    <span id="coupon-value">&#8211;{{ $cart->coupon()->value()->convertToCurrentCurrency()->format() }}</span>
-                                </span>
-                            @endif
+{{--                            @if ($cart->hasCoupon())--}}
+{{--                                <span class="item-amount">--}}
+{{--                                    {{ trans('storefront::cart.coupon') }} (<span class="coupon-code">{{ $cart->coupon()->code() }}</span>)--}}
+{{--                                    <span id="coupon-value">&#8211;{{ $cart->coupon()->value()->convertToCurrentCurrency()->format() }}</span>--}}
+{{--                                </span>--}}
+{{--                            @endif--}}
 
-                            @foreach ($cart->taxes() as $tax)
-                                <span class="item-amount">
-                                    {{ $tax->name() }}
-                                    <span>{{ $tax->amount()->convertToCurrentCurrency()->format() }}</span>
-                                </span>
-                            @endforeach--}}
+{{--                            @foreach ($cart->taxes() as $tax)--}}
+{{--                                <span class="item-amount">--}}
+{{--                                    {{ $tax->name() }}--}}
+{{--                                    <span>{{ $tax->amount()->convertToCurrentCurrency()->format() }}</span>--}}
+{{--                                </span>--}}
+{{--                            @endforeach--}}
 
                             <span class="total">
                                 {{ trans('storefront::cart.total') }}
-{{--                                <span id="total-amount">{{ $cart->total()->convertToCurrentCurrency()->format() }}</span>--}}
-                                <span id="total-amount">{{  number_format($cart->total()) }}</span>
+                                <span id="total-amount">{{ $cart->total()->convertToCurrentCurrency()->format() }}</span>
                             </span>
 
-{{--                            @if ($cart->hasNoAvailableShippingMethod())
+                            @if ($cart->hasNoAvailableShippingMethod())
                                 <span class="error-message text-center">{{ trans('storefront::cart.no_shipping_method_is_available') }}</span>
-                            @endif--}}
+                            @endif
 
-{{--                            <a href="{{ route('checkout.create') }}" class="btn btn-primary btn-checkout {{ $cart->hasNoAvailableShippingMethod() ? 'disabled' : '' }}" data-loading>--}}
-                            <a href="" class="btn btn-primary btn-checkout" data-loading>
+                            <a href="{{ route('checkout.create') }}" class="btn btn-primary btn-checkout {{ $cart->hasNoAvailableShippingMethod() ? 'disabled' : '' }}" data-loading>
                                 {{ trans('storefront::cart.checkout') }}
                             </a>
                         </div>
