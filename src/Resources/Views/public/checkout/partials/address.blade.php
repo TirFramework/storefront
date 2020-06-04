@@ -63,7 +63,7 @@
             @endguest
         </div>
 
-        @include('public.checkout.partials.billing_address')
+        @include('storefront::public.checkout.partials.billing_address')
 
         <div class="checkbox ship-to-a-different-address">
             <input type="hidden" name="ship_to_a_different_address" value="0">
@@ -74,7 +74,7 @@
             </label>
         </div>
 
-        @include('public.checkout.partials.shipping_address')
+        @include('storefront::public.checkout.partials.shipping_address')
 
         <button type="button" class="btn btn-primary next-step continue-button pull-right">
             {{ trans('storefront::checkout.continue') }}

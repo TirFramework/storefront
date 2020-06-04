@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title', trans('storefront::checkout.checkout'))
 
@@ -53,9 +53,9 @@
                         </div>
 
                         <div class="tab-content">
-                            @include('public.checkout.partials.address')
-                            @include('public.checkout.partials.payment')
-                            @include('public.checkout.partials.confirm')
+                            @include('storefront::public.checkout.partials.address')
+                            @include('storefront::public.checkout.partials.payment')
+                            @include('storefront::public.checkout.partials.confirm')
                         </div>
                     </div>
                 </div>
@@ -144,5 +144,5 @@
 
 @push('scripts')
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ v(Theme::url('public/js/stripe.js')) }}"></script>
+    <script src="{{ Crud::version(url('public/js/stripe.js')) }}"></script>
 @endpush

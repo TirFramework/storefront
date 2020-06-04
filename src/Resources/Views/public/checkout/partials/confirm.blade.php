@@ -11,13 +11,13 @@
                         @foreach ($cart->items() as $cartItem)
                             <tr>
                                 <td>
-                                    @if (! $cartItem->product->base_image->exists)
+                                    @if (! $cartItem->product->image)
                                         <div class="image-placeholder">
                                             <i class="fa fa-picture-o" aria-hidden="true"></i>
                                         </div>
                                     @else
                                         <div class="image-holder">
-                                            <img src="{{ $cartItem->product->base_image->path }}">
+                                            <img src="{{ $cartItem->product->image }}">
                                         </div>
                                     @endif
                                 </td>
@@ -41,7 +41,7 @@
 
                                 <td>
                                     <label>{{ trans('storefront::checkout.tabs.confirm.quantity') }}:</label>
-                                    <span>{{ intl_number($cartItem->qty) }}</span>
+                                    <span>{{ $cartItem->qty }}</span>
                                 </td>
 
                                 <td>
@@ -64,6 +64,6 @@
         </button>
     </div>
 
-    @include('public.checkout.partials.payment_instructions', ['paymentMethod' => 'bank_transfer'])
-    @include('public.checkout.partials.payment_instructions', ['paymentMethod' => 'check_payment'])
+    @include('storefront::public.checkout.partials.payment_instructions', ['paymentMethod' => 'bank_transfer'])
+    @include('storefront::public.checkout.partials.payment_instructions', ['paymentMethod' => 'check_payment'])
 </div>

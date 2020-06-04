@@ -95,7 +95,6 @@
                         {{--Todo: Enable Coupuns--}}
                         <div class="cart-list-bottom">
                             <form method="POST" action="{{ route('cart.coupon.store') }}" id="coupon-apply-form" class="clearfix">
-                            <form method="POST" action="" id="coupon-apply-form" class="clearfix">
                                 {{ csrf_field() }}
 
                                 <div class="form-group pull-left">
@@ -142,19 +141,19 @@
                                 @endif
                             @endif
 
-{{--                            @if ($cart->hasCoupon())--}}
-{{--                                <span class="item-amount">--}}
-{{--                                    {{ trans('storefront::cart.coupon') }} (<span class="coupon-code">{{ $cart->coupon()->code() }}</span>)--}}
-{{--                                    <span id="coupon-value">&#8211;{{ $cart->coupon()->value()->convertToCurrentCurrency()->format() }}</span>--}}
-{{--                                </span>--}}
-{{--                            @endif--}}
+                            @if ($cart->hasCoupon())
+                                <span class="item-amount">
+                                    {{ trans('storefront::cart.coupon') }} (<span class="coupon-code">{{ $cart->coupon()->code() }}</span>)
+                                    <span id="coupon-value">&#8211;{{ $cart->coupon()->value()->convertToCurrentCurrency()->format() }}</span>
+                                </span>
+                            @endif
 
-{{--                            @foreach ($cart->taxes() as $tax)--}}
-{{--                                <span class="item-amount">--}}
-{{--                                    {{ $tax->name() }}--}}
-{{--                                    <span>{{ $tax->amount()->convertToCurrentCurrency()->format() }}</span>--}}
-{{--                                </span>--}}
-{{--                            @endforeach--}}
+                            @foreach ($cart->taxes() as $tax)
+                                <span class="item-amount">
+                                    {{ $tax->name() }}
+                                    <span>{{ $tax->amount()->convertToCurrentCurrency()->format() }}</span>
+                                </span>
+                            @endforeach
 
                             <span class="total">
                                 {{ trans('storefront::cart.total') }}
