@@ -144,5 +144,5 @@
 
 @push('scripts')
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ Crud::version(url('public/js/stripe.js')) }}"></script>
+    <script src="{{ Crud::version(url('themes/storefront/public/js/stripe.js')) }}"></script>
 @endpush
