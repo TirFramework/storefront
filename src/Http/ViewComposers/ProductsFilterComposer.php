@@ -35,11 +35,12 @@ class ProductsFilterComposer
             return [];
         }
 
+        $categorySlug = request('category');
 
         if(isset($categorySlug)){
             return Attribute::with('values')
                 ->where('is_filterable', true)
-                ->whereHas('categories', function ($query) use ($view) {
+                ->whereHas('categories', function ($query) use ($categorySlug) {
                     $query->where('id', $this->getCategoryId($categorySlug));
                 })->get();
 
