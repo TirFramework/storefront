@@ -6,7 +6,7 @@
             </a>
 
             @if ($subCategory->items->isNotEmpty())
-                @include('public.products.partials.sub_category_filter', ['subCategories' => $subCategory->items])
+                @include('storefront::public.products.partials.sub_category_filter', ['subCategories' => $subCategory->items])
             @endif
         </li>
     @endforeach

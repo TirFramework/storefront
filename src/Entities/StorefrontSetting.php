@@ -121,6 +121,7 @@ class StorefrontSetting extends CrudModel
                             ],
                             [
                                 'name'    => 'translatable[storefront_slider]',
+                                'display' => 'storefront_slider',
                                 'type'    => 'select',
                                 'data'    => Slider::select('*')->get()->pluck('name', 'id'),
                                 'visible' => 'ice',
@@ -139,11 +140,13 @@ class StorefrontSetting extends CrudModel
                             ],
                             [
                                 'name'    => 'translatable[storefront_footer_address]',
+                                'display' => 'storefront_footer_address',
                                 'type'    => 'text',
                                 'visible' => 'ice',
                             ],
                             [
                                 'name'    => 'translatable[storefront_copyright_text]',
+                                'display' => 'storefront_copyright_text',
                                 'type'    => 'text',
                                 'visible' => 'ice',
                             ],
@@ -164,16 +167,19 @@ class StorefrontSetting extends CrudModel
                             ],
                             [
                                 'name'    => 'translatable[storefront_header_logo]',
+                                'display' => 'storefront_header_logo',
                                 'type'    => 'image',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'translatable[storefront_footer_logo]',
+                                'display' => 'storefront_footer_logo',
                                 'type'    => 'image',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'translatable[storefront_mail_logo]',
+                                'display' => 'storefront_mail_logo',
                                 'type'    => 'image',
                                 'visible' => 'ce',
                             ],
@@ -188,28 +194,33 @@ class StorefrontSetting extends CrudModel
 
                             [
                                 'name'    => 'translatable[storefront_primary_menu]',
+                                'display' => 'storefront_primary_menu',
                                 'type'    => 'select',
                                 'data'    => Menu::select('*')->get()->pluck('name', 'id'),
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'translatable[storefront_category_menu_title]',
+                                'display' => 'storefront_category_menu_title',
                                 'type'    => 'text',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'translatable[storefront_category_menu]',
+                                'display' => 'storefront_category_menu',
                                 'type'    => 'select',
                                 'data'    => Menu::select('*')->get()->pluck('name', 'id'),
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'translatable[storefront_footer_menu_title]',
+                                'display' => 'storefront_footer_menu_title',
                                 'type'    => 'text',
                                 'visible' => 'ce',
                             ],
                             [
                                 'name'    => 'translatable[storefront_footer_menu]',
+                                'display' => 'storefront_footer_menu',
                                 'type'    => 'select',
                                 'data'    => Menu::select('*')->get()->pluck('name', 'id'),
                                 'visible' => 'ce',
@@ -269,7 +280,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'banner_1',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Banner_1</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.banner'). '1 </h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -317,7 +328,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'banner_2',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Banner_2</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.banner'). '2 </h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -328,7 +339,7 @@ class StorefrontSetting extends CrudModel
                             ],
                             [
                                 'name'    => 'translatable[storefront_slider_banner_2_caption_1]',
-                                'display' => 'caption_2',
+                                'display' => 'caption_1',
                                 'type'    => 'text',
                                 'col'     => 'col-6',
                                 'visible' => 'ice',
@@ -380,7 +391,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'feature_1',
                                 'type'    => 'blank',
-                                'value'   => '<h3>feature_1</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.feature'). ' 1</h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -407,7 +418,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'feature_2',
                                 'type'    => 'blank',
-                                'value'   => '<h3>feature_2</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.feature'). ' 2</h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -434,7 +445,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'feature_3',
                                 'type'    => 'blank',
-                                'value'   => '<h3>feature_3</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.feature'). ' 3</h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -461,7 +472,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'feature_4',
                                 'type'    => 'blank',
-                                'value'   => '<h3>feature_4</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.feature'). ' 4</h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -503,7 +514,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'banner_1',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Banner_1</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.banner'). '1 </h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -551,7 +562,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'banner_2',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Banner_2</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.banner'). '2 </h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -599,7 +610,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'banner_3',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Banner_3</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.banner'). '3 </h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -773,7 +784,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'column_1',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Column 1</h3>',
+                                'value'   => '<h5>'.trans('storefront::panel.column'). ' 1</h5><hr/>',
                                 'visible' => 'e'
                             ],
                             [
@@ -783,7 +794,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_three_column_vertical_product_carousel_section_column_1_products',
+                                'name'     => 'storefront_three_column_vertical_product_carousel_section_column_1_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -793,7 +804,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'column_2',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Column 2</h3>',
+                                'value'   => '<h5>'.trans('storefront::panel.column'). ' 2</h5><hr/>',
                                 'visible' => 'e'
                             ],
                             [
@@ -803,7 +814,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_three_column_vertical_product_carousel_section_column_2_products',
+                                'name'     => 'storefront_three_column_vertical_product_carousel_section_column_2_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -813,7 +824,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'column_3',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Column 3</h3>',
+                                'value'   => '<h5>'.trans('storefront::panel.column'). ' 3</h5><hr/>',
                                 'visible' => 'e'
                             ],
                             [
@@ -823,7 +834,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_three_column_vertical_product_carousel_section_column_3_products',
+                                'name'     => 'storefront_three_column_vertical_product_carousel_section_column_3_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -852,7 +863,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_landscape_products_section_products',
+                                'name'     => 'storefront_landscape_products_section_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -878,7 +889,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'banner_1',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Banner_1</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.banner'). ' 1</h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -926,7 +937,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'banner_2',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Banner_2</h3><hr/>',
+                                'value'   => '<h5>'.trans('storefront::panel.banner'). ' 2</h5><hr/>',
                                 'visible' => 'ce',
                             ],
                             [
@@ -988,7 +999,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'tab_1',
                                 'type'    => 'blank',
-                                'value'   => '<h3>'.trans('storefront::panel.tab').' 1</h3>',
+                                'value'   => '<h5>' . trans('storefront::panel.tab') . ' 1</h5>',
                                 'visible' => 'e'
                             ],
                             [
@@ -998,7 +1009,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_product_tabs_section_tab_1_products',
+                                'name'     => 'storefront_product_tabs_section_tab_1_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -1008,7 +1019,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'tab_2',
                                 'type'    => 'blank',
-                                'value'   => '<h3>'.trans('storefront::panel.tab').' 2</h3>',
+                                'value'   => '<h5>' . trans('storefront::panel.tab') . ' 2</h5>',
                                 'visible' => 'e'
                             ],
                             [
@@ -1018,7 +1029,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_product_tabs_section_tab_2_products',
+                                'name'     => 'storefront_product_tabs_section_tab_2_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -1028,7 +1039,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'tab_3',
                                 'type'    => 'blank',
-                                'value'   => '<h3>'.trans('storefront::panel.tab').' 3</h3>',
+                                'value'   => '<h5>' . trans('storefront::panel.tab') . ' 3</h5>',
                                 'visible' => 'e'
                             ],
                             [
@@ -1038,7 +1049,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_product_tabs_section_tab_3_products',
+                                'name'     => 'storefront_product_tabs_section_tab_3_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -1048,7 +1059,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'tab_4',
                                 'type'    => 'blank',
-                                'value'   => '<h3>'.trans('storefront::panel.tab').' 4</h3>',
+                                'value'   => '<h5>' . trans('storefront::panel.tab') . ' 4</h5>',
                                 'visible' => 'e'
                             ],
                             [
@@ -1058,7 +1069,7 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'e',
                             ],
                             [
-                                'name'    => 'storefront_product_tabs_section_tab_4_products',
+                                'name'     => 'storefront_product_tabs_section_tab_4_products',
                                 'display'  => 'products',
                                 'type'     => 'select',
                                 'data'     => Product::all()->pluck('name', 'id'),
@@ -1083,7 +1094,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'column_1',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Column 1</h3>',
+                                'value'   => '<h5>'.trans('storefront::panel.column'). ' 1</h5><hr/>',
                                 'visible' => 'e'
                             ],
                             [
@@ -1103,7 +1114,7 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'column_2',
                                 'type'    => 'blank',
-                                'value'   => '<h3>Column 2</h3>',
+                                'value'   => '<h5>'.trans('storefront::panel.column'). ' 2</h5><hr/>',
                                 'visible' => 'e'
                             ],
                             [
@@ -1126,13 +1137,13 @@ class StorefrontSetting extends CrudModel
                     ],
 
 
-
                 ]
             ]
 
         ];
 
-        return $fields;}
+        return $fields;
+    }
 
 
     //functions /////////////////////////////////////////////////

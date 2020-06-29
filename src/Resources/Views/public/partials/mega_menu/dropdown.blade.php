@@ -6,7 +6,7 @@
             </a>
 
             @if ($subMenu->hasItems())
-                @include('public.partials.mega_menu.dropdown', ['subMenus' => $subMenu->items()])
+                @include('storefront::public.partials.mega_menu.dropdown', ['subMenus' => $subMenu->items()])
             @endif
         </li>
     @endforeach

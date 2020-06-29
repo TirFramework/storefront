@@ -19,7 +19,20 @@ class StorefrontServiceProvider extends ServiceProvider
 
     public function register()
     {
+        View::composer('storefront::public.home.index', HomePageComposer::class);
+        View::composer('storefront::public.layout', LayoutComposer::class);
+        View::composer('storefront::public.products.partials.filter', ProductsFilterComposer::class);
 
+
+        $this->loadRoutesFrom(__DIR__.'/Routes/admin.php');
+        $this->loadRoutesFrom(__DIR__.'/Routes/public.php');
+
+
+//        $this->loadMigrationsFrom(__DIR__ .'/Database/Migrations');
+
+        $this->loadViewsFrom(__DIR__.'/Resources/Views', 'storefront');
+
+        $this->loadTranslationsFrom(__DIR__.'/Resources/Lang/', 'storefront');
     }
 
     /**
@@ -30,20 +43,18 @@ class StorefrontServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        View::composer('storefront::public.home.index', HomePageComposer::class);
-        View::composer('storefront::public.layout', LayoutComposer::class);
-        View::composer('storefront::public.products.partials.filter', ProductsFilterComposer::class);
 
 
-       $this->loadRoutesFrom(__DIR__.'/Routes/admin.php');
-       $this->loadRoutesFrom(__DIR__.'/Routes/public.php');
+        $this->adminMenu();
+    }
+
+    private function adminMenu()
+    {
+        $menu = resolve('AdminMenu');
+        $menu->item('setting')->title('storefront::panel.setting')->link('#')->add();
+        $menu->item('setting.storefront_setting')->title('storefront::panel.storefront_setting')->link('./admin/storefront')->add();
 
 
-//        $this->loadMigrationsFrom(__DIR__ .'/Database/Migrations');
-
-        $this->loadViewsFrom(__DIR__.'/Resources/Views', 'storefront');
-
-        $this->loadTranslationsFrom(__DIR__.'/Resources/Lang/', 'storefront');
 
     }
 }
