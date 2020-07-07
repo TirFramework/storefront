@@ -1,6 +1,6 @@
 <div class="col-md-3 col-sm-12">
     <div class="product-list-sidebar clearfix">
-        @include('storefront::public.products.partials.category_filter')
+{{--        @include('storefront::public.products.partials.category_filter')--}}
 
         <form method="GET" action="{{ route('products.index') }}" id="product-filter-form">
             @foreach (request()->except(['attribute', 'fromPrice', 'toPrice']) as $query => $value)
