@@ -6,6 +6,7 @@ return [
     'search_for_products' => 'جستجوی محصولات ...',
     'all_categories' => 'همه دسته‌بندی‌ها',
     'search' => 'جستجو',
+    'zip_code' => 'کد پستی',
     'account_settings' => 'تنظیمات اکانت',
     'product_tags' => 'برچسب‌های محصولات',
     'enter_your_email' => 'ایمیل خود را وارد کنید...',

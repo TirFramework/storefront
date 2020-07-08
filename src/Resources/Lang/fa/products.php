@@ -17,7 +17,7 @@ return [
         'price_high_to_low' => 'Price: زیاد به کم',
     ],
     'category' => 'دسته‌بندی',
-    'from' => 'از',
-    'to' => 'به',
+    'from' => 'قیمت: از',
+    'to' => 'تا',
     'filter' => 'فیلتر',
 ];

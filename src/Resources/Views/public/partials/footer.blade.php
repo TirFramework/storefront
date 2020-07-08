@@ -24,6 +24,12 @@
                                         <span class="contact-info">{{ stg::get('store_phone') }}</span>
                                     </li>
                                 @endif
+                                    @if (stg::get('store_mobile'))
+                                        <li>
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                                            <span class="contact-info">{{ stg::get('store_mobile') }}</span>
+                                        </li>
+                                    @endif
 
                                 @if (stg::get('store_email'))
                                     <li>
@@ -34,8 +40,15 @@
 
                                 @if (stg::get('storefront_footer_address'))
                                     <li>
-                                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
                                         <span class="contact-info">{{ stg::get('storefront_footer_address') }}</span>
+                                    </li>
+                                @endif
+
+                                @if (stg::get('store_zip'))
+                                    <li>
+                                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                        <span class="contact-info">@lang('storefront::layout.zip_code'): {{ stg::get('store_zip') }}</span>
                                     </li>
                                 @endif
                             </ul>
