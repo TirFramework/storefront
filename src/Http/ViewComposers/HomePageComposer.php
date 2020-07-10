@@ -3,6 +3,7 @@
 namespace Tir\Storefront\Http\ViewComposers;
 
 use Illuminate\Support\Collection;
+use Tir\Store\Brand\Entities\Brand;
 use Tir\Storefront\Entities\Banner;
 use Tir\Setting\Facades\Stg;
 use Tir\Slider\Entities\Slider;
@@ -51,6 +52,7 @@ class HomePageComposer
             'bannerSectionThreeBanners' => $this->getBannerSectionThreeBanners(),
             'tabProducts' => $this->getTabProducts(),
             'twoColumnCarouselProducts' => $this->getTwoColumnCarouselProducts(),
+            'brands' => $this->getBrands(),
 
 //            'recentlyViewedProducts' => $this->getRecentlyViewedProducts(),
 
@@ -189,5 +191,10 @@ class HomePageComposer
         return collect($this->recentlyViewed->products())
             ->reverse()
             ->take(Stg::get('storefront_recently_viewed_section_total_products', 5));
+    }
+
+    private function getBrands()
+    {
+        return Brand::select('*')->get();
     }
 }
