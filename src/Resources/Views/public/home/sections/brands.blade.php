@@ -1,7 +1,7 @@
 @if (isset($brands))
     <section class="product-slider-wrapper clearfix">
         <div class="section-header">
-            <h3>{{ $title }}</h3>
+            <h3>@lang('storefront::products.brands')</h3>
         </div>
 
         <div class="row">
