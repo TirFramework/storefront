@@ -8,6 +8,29 @@
                     <input type="hidden" name="{{ $query }}" value="{{ $value }}">
                 @endif
             @endforeach
+                    <div class="filter-section clearfix">
+                        <h4>@lang('storefront::products.brands')</h4>
+
+                        <div class="{{ count($brands) > 5 ? 'filter-scroll' : '' }}">
+                            @foreach ($brands as $brand)
+                                <div class="filter-options">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <input type="checkbox"
+                                                   name="brands[]"
+                                                   value="{{ mb_strtolower($brand->id) }}"
+                                                   id="brand-{{ $brand->id }}"
+                                                   class="{{ $brand->is_filtering() ? 'checked' : '' }}"
+                                                    {{ $brand->is_filtering() ? 'checked' : '' }}>
+
+                                            <label for="brand-{{ $brand->id }}">{{ $brand->name }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
 
             @foreach ($attributes as $attribute)
                 <div class="filter-section clearfix">

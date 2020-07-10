@@ -3,6 +3,7 @@
 namespace Tir\Storefront\Http\ViewComposers;
 
 use Illuminate\Support\Facades\DB;
+use Tir\Store\Brand\Entities\Brand;
 use Tir\Store\Product\Entities\Product;
 use Tir\Store\Category\Entities\Category;
 use Tir\Store\Attribute\Entities\Attribute;
@@ -21,8 +22,11 @@ class ProductsFilterComposer
             'categories' => $this->categories(),
             'attributes' => $this->attributes($view),
             'maxPrice' => $this->maxPrice(),
+            'brands' => $this->brands()
         ]);
     }
+
+
 
     private function categories()
     {
@@ -35,6 +39,9 @@ class ProductsFilterComposer
             return [];
         }
 
+
+
+
         $categorySlug = request('category');
 
         if(isset($categorySlug)){
@@ -46,17 +53,21 @@ class ProductsFilterComposer
         return $filters;
         }
 
+        //Original code
+        return Attribute::with('values')
+            ->where('is_filterable', true)
+            ->whereHas('categories', function ($query) use ($view) {
+                $query->whereIn('id', $this->getProductsCategoryIds($view));
+            })
+            ->get();
+
         return [];
 
 
-        //Original code
-        /*          return Attribute::with('values')
-                    ->where('is_filterable', true)
-                    ->whereHas('categories', function ($query) use ($view) {
-                        $query->whereIn('id', $this->getProductsCategoryIds($view));
-                    })
-                    ->get();
-            }*/
+
+
+
+
     }
 
     public static function filteringViaRootCategory()
@@ -83,5 +94,15 @@ class ProductsFilterComposer
     private function maxPrice()
     {
         return Product::max('selling_price');
+    }
+
+    private function brands()
+    {
+        $categorySlug = request('category');
+        return  Brand::whereHas('products',function($query) use($categorySlug){
+            $query->whereHas('categories',function($q) use($categorySlug){
+                $q->where('slug', $categorySlug);
+            });
+        })->orderBy('position')->get();
     }
 }
