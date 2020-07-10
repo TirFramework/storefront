@@ -46,7 +46,7 @@
         {{--//TODO:remove admin route--}}
         @routes
     </head>
-    <body class="{{ $theme }} {{ Stf::layout() }} {{ Crud::is_rtl() ? 'rtl' : 'ltr' }}">
+    <body class="theme-{{ $theme }} {{ Stf::layout() }} {{ Crud::is_rtl() ? 'rtl' : 'ltr' }}">
         <!--[if lt IE 8]>
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->

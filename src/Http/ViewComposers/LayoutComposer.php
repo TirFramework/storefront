@@ -45,7 +45,7 @@ class LayoutComposer
             'copyrightText' => $this->getCopyrightText(),
             'cart' => $this->getCart(),
 
-            'theme' => 'theme-blue',
+            'theme' => $this->getTheme(),
 
 
         ]);
@@ -108,7 +108,7 @@ class LayoutComposer
             return request()->routeIs('home');
         }
 
-        if ($layout === 'slider_with_banners') {
+        if ($layout === 'slider_with_banners' || $layout === 'wide') {
             return false;
         }
 

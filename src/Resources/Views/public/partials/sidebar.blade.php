@@ -1,12 +1,12 @@
 <div class="sidebar">
     <ul class="sidebar-content clearfix">
-        @isset($categoryMeny)
+        @isset($categoryMenu)
             @foreach ($categoryMenu->menus() as $menu)
                 <li>
                     <a href="{{ $menu->url() }}">{{ $menu->name() }}</a>
 
                     @if ($menu->hasSubMenus())
-                        @include('public.partials.nested_sidebar', ['subMenus' => $menu->subMenus()])
+                        @include('storefront::public.partials.nested_sidebar', ['subMenus' => $menu->subMenus()])
                     @endif
                 </li>
             @endforeach

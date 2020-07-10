@@ -11,6 +11,11 @@
                 </div>
             </div>
             <div class="clearfix"></div>
+
+        @elseif (Stf::layout() === 'wide')
+
+                @include('storefront::public.home.sections.slider')
+
         @elseif (Stf::layout() === 'slider_with_banners')
             <div class="row">
                 <div class="col-md-9">

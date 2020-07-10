@@ -104,7 +104,16 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'storefront_theme',
                                 'type'    => 'select',
-                                'data'    => ['blue' => 'Blue', 'red' => 'red'],
+                                'data'    => [
+                                                'black' => trans('storefront::panel.black'),
+                                                'blue' => trans('storefront::panel.blue'),
+                                                'marrs-green' => trans('storefront::panel.marrs-green'),
+                                                'navy-blue' => trans('storefront::panel.navy-blue'),
+                                                'pink' => trans('storefront::panel.pink'),
+                                                'red' => trans('storefront::panel.red'),
+                                                'sky-blue' => trans('storefront::panel.sky-blue'),
+                                                'violet' => trans('storefront::panel.violet')
+                                            ],
                                 'visible' => 'ice',
                             ],
                             [
@@ -116,7 +125,11 @@ class StorefrontSetting extends CrudModel
                             [
                                 'name'    => 'storefront_layout',
                                 'type'    => 'select',
-                                'data'    => ['default' => 'Default', 'slider_with_banners' => 'Slider With Banners'],
+                                'data'    => [
+                                                'default' => 'Default',
+                                                'slider_with_banners' => 'Slider With Banners',
+                                                'wide' => 'Wide'
+                                             ],
                                 'visible' => 'ice',
                             ],
                             [

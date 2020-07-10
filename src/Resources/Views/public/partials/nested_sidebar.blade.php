@@ -4,7 +4,7 @@
             <a href="{{ $subMenu->url() }}">{{ $subMenu->name() }}</a>
 
             @if ($subMenu->hasItems())
-                @include('public.partials.nested_sidebar', ['subMenus' => $subMenu->items()])
+                @include('storefront::public.partials.nested_sidebar', ['subMenus' => $subMenu->items()])
             @endif
         </li>
     @endforeach
