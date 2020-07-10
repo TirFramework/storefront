@@ -17,7 +17,7 @@ return [
     ],
     'tabs' => [
         'description' => 'شرح',
-        'additional_information' => 'اطلاعات اضافی',
+        'additional_information' => 'مشخصات فنی',
         'reviews' => 'نظر‌‌ها',
     ],
     'reviews' => [
