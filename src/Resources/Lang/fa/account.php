@@ -60,7 +60,7 @@ return [
     ],
     'profile' => [
         'account' => 'حساب کاربری',
-        'first_name' => 'تام',
+        'first_name' => 'نام',
         'last_name' => 'نام خانوادگی',
         'email' => 'ایمیل',
         'password' => 'کلمه عبور',

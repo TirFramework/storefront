@@ -1,4 +1,4 @@
-@extends('public.account.layout')
+@extends('storefront::public.account.layout')
 
 @section('title', trans('storefront::account.links.dashboard'))
 
@@ -34,7 +34,7 @@
                             @foreach ($recentOrders as $order)
                                 <tr>
                                     <td>#{{ $order->id }}</td>
-                                    <td>{{ $order->created_at->toFormattedDateString() }}</td>
+                                    <td>{{ (config('app.locale') == 'fa') ? jDate($order->created_at)->format('H:i  %A, %d %B %Y') : $order  ->created_at}}</td>
                                     <td>{{ $order->status() }}</td>
                                     <td>{{ $order->total->convert($order->currency, $order->currency_rate)->format($order->currency) }}</td>
                                     <td>

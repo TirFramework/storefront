@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title', trans('storefront::account.view_order.view_order'))
 
@@ -116,7 +116,7 @@
 
                                         <td>
                                             <label>{{ trans('storefront::account.view_order.quantity') }}:</label>
-                                            <span>{{ intl_number($product->qty) }}</span>
+                                            <span>{{ $product->qty }}</span>
                                         </td>
 
                                         <td>

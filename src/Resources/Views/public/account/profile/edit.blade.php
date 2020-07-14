@@ -1,4 +1,4 @@
-@extends('public.account.layout')
+@extends('storefront::public.account.layout')
 
 @section('title', trans('storefront::account.links.my_profile'))
 

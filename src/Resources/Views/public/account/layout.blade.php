@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('breadcrumb')
     @if (request()->routeIs('account.dashboard.index'))

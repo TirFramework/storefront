@@ -1,4 +1,4 @@
-@extends('public.account.layout')
+@extends('storefront::public.account.layout')
 
 @section('title', trans('storefront::account.links.my_reviews'))
 
@@ -26,13 +26,13 @@
                         @foreach ($reviews as $review)
                             <tr>
                                 <td>
-                                    @if (! $review->product->base_image->exists)
+                                    @if (! isset($review->product->image))
                                         <div class="image-placeholder">
                                             <i class="fa fa-picture-o" aria-hidden="true"></i>
                                         </div>
                                     @else
                                         <div class="image-holder">
-                                            <img src="{{ $review->product->base_image->path }}">
+                                            <img src="{{ $review->product->image }}">
                                         </div>
                                     @endif
                                 </td>
@@ -42,10 +42,12 @@
                                 </td>
 
                                 <td>
-                                    @include('public.products.partials.product.rating', ['rating' => $review->rating])
+                                    @include('storefront::public.products.partials.product.rating', ['rating' => $review->rating])
                                 </td>
 
-                                <td>{{ $review->created_at->toFormattedDateString() }}</td>
+                                <td>
+                                    {{ (config('app.locale') == 'fa') ? jDate($review->created_at)->ago() : $review->created_at}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
