@@ -17,6 +17,7 @@
                                         <div class="caption caption-md"
                                             data-delay="{{ $slide->options['caption_1']['delay'] }}ms"
                                             data-effect="{{ $slide->options['caption_1']['effect'] }}"
+                                             style="color:{{$slide->options['caption_1']['color']}}"
                                         >
                                             {{ $slide->caption_1 }}
                                         </div>
@@ -26,6 +27,7 @@
                                         <div class="caption caption-lg"
                                             data-delay="{{ $slide->options['caption_2']['delay'] }}ms"
                                             data-effect="{{ $slide->options['caption_2']['effect'] }}"
+                                             style="color:{{$slide->options['caption_2']['color']}}"
                                         >
                                             {{ $slide->caption_2 }}
                                         </div>
@@ -35,6 +37,7 @@
                                         <div class="caption caption-sm"
                                             data-delay="{{ $slide->options['caption_3']['delay'] }}ms"
                                             data-effect="{{ $slide->options['caption_3']['effect'] }}"
+                                             style="color:{{$slide->options['caption_3']['color']}}"
                                         >
                                             {{ $slide->caption_3 }}
                                         </div>
