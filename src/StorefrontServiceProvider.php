@@ -42,9 +42,6 @@ class StorefrontServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-
-
         $this->adminMenu();
     }
 
