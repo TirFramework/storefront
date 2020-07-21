@@ -16,6 +16,7 @@ use Tir\Menu\Entities\Menu;
 use Tir\Menu\MegaMenu\MegaMenu;
 use Tir\Setting\Facades\Stg;
 use Tir\Store\Category\Entities\Category;
+use Tir\Store\Compare\Compare;
 use Tir\Storefront\Facades\Stf;
 use Illuminate\Support\Facades\Cache;
 use Tir\Store\Cart\Facades\Cart;
@@ -46,6 +47,8 @@ class LayoutComposer
             'cart' => $this->getCart(),
 
             'theme' => $this->getTheme(),
+            'compareCount' => resolve(Compare::class)->count(),
+
 
 
         ]);

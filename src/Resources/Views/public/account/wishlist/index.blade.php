@@ -1,4 +1,4 @@
-@extends('public.account.layout')
+@extends('storefront::public.account.layout')
 
 @section('title', trans('storefront::account.links.my_wishlist'))
 
@@ -27,13 +27,13 @@
                         @foreach ($products as $product)
                             <tr>
                                 <td>
-                                    @if (! $product->base_image->exists)
+                                    @if (! $product->image)
                                         <div class="image-placeholder">
                                             <i class="fa fa-picture-o" aria-hidden="true"></i>
                                         </div>
                                     @else
                                         <div class="image-holder">
-                                            <img src="{{ $product->base_image->path }}">
+                                            <img src="{{ $product->image }}">
                                         </div>
                                     @endif
                                 </td>
@@ -47,7 +47,9 @@
                                 </td>
 
                                 <td>
-                                    <span class="price">{{ product_price($product) }}</span>
+                                    <span class="price">
+                                       {{ \Tir\Store\Product\Support\Price::render($product) }}
+                                    </span>
                                 </td>
 
                                 <td>

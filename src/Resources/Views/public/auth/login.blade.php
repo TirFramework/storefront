@@ -1,10 +1,10 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title', trans('user::auth.login'))
 
 @section('content')
     <div class="form-wrapper">
-        @include('public.partials.notification')
+        @include('storefront::public.partials.notification')
 
         <div class="form form-page">
             <form method="POST" action="{{ route('login.post') }}" class="login-form clearfix">
@@ -65,7 +65,7 @@
             </form>
         </div>
 
-        <div class="social-login-buttons text-center">
+        {{--<div class="social-login-buttons text-center">
             @if (count(app('enabled_social_login_providers')) !== 0)
                 <span>{{ trans('user::auth.or') }}</span>
             @endif
@@ -83,6 +83,6 @@
                     {{ trans('user::auth.log_in_with_google') }}
                 </a>
             @endif
-        </div>
+        </div>--}}
     </div>
 @endsection

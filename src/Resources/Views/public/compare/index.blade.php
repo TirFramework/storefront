@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title', trans('storefront::compare.compare'))
 
@@ -13,20 +13,19 @@
 
                             @foreach ($compare->products() as $product)
                                 <td class="product-overview">
-                                    @if (! $product->base_image->exists)
+                                    @if (! $product->image)
                                         <div class="image-placeholder">
                                             <i class="fa fa-picture-o" aria-hidden="true"></i>
                                         </div>
                                     @else
                                         <div class="image-holder">
-                                            <img src="{{ $product->base_image->path }}">
+                                            <img src="{{ $product->image }}">
                                         </div>
                                     @endif
 
                                     <h5>
                                         <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
                                     </h5>
-
                                     <form method="POST" action="{{ route('compare.destroy', $product) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}
@@ -42,7 +41,7 @@
 
                             @foreach ($compare->products() as $product)
                                 <td>
-                                    <span class="product-price">{{ product_price($product) }}</span>
+                                    <span class="product-price">{{ \Tir\Store\Product\Support\Price::render($product) }}</span>
                                 </td>
                             @endforeach
                         </tr>

@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title', trans('user::auth.register'))
 
@@ -6,7 +6,7 @@
     <div class="register-wrapper clearfix">
         <div class="col-lg-6 col-md-7 col-sm-10">
             <div class="row">
-                @include('public.partials.notification')
+                @include('storefront::public.partials.notification')
 
                 <form method="POST" action="{{ route('register.post') }}">
                     {{ csrf_field() }}

@@ -26,6 +26,20 @@
 {{--                            </select>--}}
 {{--                        </li>--}}
 {{--                    @endif--}}
+
+
+                    <li>
+                        <a href="{{ route('compare.index') }}">
+                            {{ trans('storefront::layout.compare') }} ({{ $compareCount }})
+                        </a>
+                    </li>
+
+                    @auth
+                        <li><a href="{{ route('account.wishlist.index') }}">{{ trans('storefront::account.links.my_wishlist') }}</a></li>
+                        <li><a href="{{ route('account.dashboard.index') }}">{{ trans('storefront::account.links.my_account') }}</a></li>
+                    @else
+                        <li><a href="{{ route('login') }}">{{ trans('storefront::layout.log_in') }}</a></li>
+                    @endauth
                 </ul>
             </div>
 
@@ -54,18 +68,6 @@
                     @endif
 {{--                    <li><a href="{{ route('contact.create') }}">{{ trans('storefront::contact.contact') }}</a></li>--}}
 
-{{--                    <li>--}}
-{{--                        <a href="{{ route('compare.index') }}">--}}
-{{--                            {{ trans('storefront::layout.compare') }} ({{ $compareCount }})--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-
-{{--                    @auth--}}
-{{--                        <li><a href="{{ route('account.wishlist.index') }}">{{ trans('storefront::account.links.my_wishlist') }}</a></li>--}}
-{{--                        <li><a href="{{ route('account.dashboard.index') }}">{{ trans('storefront::account.links.my_account') }}</a></li>--}}
-{{--                    @else--}}
-{{--                        <li><a href="{{ route('login') }}">{{ trans('storefront::layout.log_in') }}</a></li>--}}
-{{--                    @endauth--}}
                 </ul>
             </div>
         </div>

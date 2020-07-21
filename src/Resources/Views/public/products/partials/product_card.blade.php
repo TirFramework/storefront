@@ -11,16 +11,6 @@
                 @endif
             </ul>
 
-{{--            @if (! $product->base_image->exists)--}}
-{{--                <div class="image-placeholder">--}}
-{{--                    <i class="fa fa-picture-o" aria-hidden="true"></i>--}}
-{{--                </div>--}}
-{{--            @else--}}
-{{--                <div class="image-holder">--}}
-{{--                    <img src="{{ $product->base_image->path }}">--}}
-{{--                </div>--}}
-{{--            @endif--}}
-
                 @if(! isset($product->image))
                     <div class="image-placeholder">
                         <i class="fa fa-picture-o" aria-hidden="true"></i>
@@ -46,8 +36,7 @@
         </div>
 
         <div class="add-to-actions-wrapper">
-{{--            <form method="POST" action="{{ route('wishlist.store') }}">--}}
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('wishlist.store') }}">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -74,8 +63,7 @@
                 </form>
             @endif
 
-{{--            <form method="POST" action="{{ route('compare.store') }}">--}}
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('compare.store') }}">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
