@@ -77,16 +77,23 @@
                 </div>
             </div>
 
-            <button type="submit" class="add-to-cart btn btn-primary pull-left" {{ $product->isOutOfStock() ? 'disabled' : '' }} data-loading>
-                {{ trans('storefront::product.add_to_cart') }}
-            </button>
+            @if($product->call_for_price == 1)
+                <button type="submit" class="add-to-cart btn btn-primary pull-left" disabled data-loading>
+                    {{ trans('product::front.call_for_price') }}
+                </button>
+            @else
+                <button type="submit" class="add-to-cart btn btn-primary pull-left" {{ $product->isOutOfStock() ? 'disabled' : '' }} data-loading>
+                    {{ trans('storefront::product.add_to_cart') }}
+                </button>
+            @endif
+
+
         </form>
 
         <div class="clearfix"></div>
 
         <div class="add-to clearfix">
-{{--            <form method="POST" action="{{ route('wishlist.store') }}">--}}
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('wishlist.store') }}">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -94,8 +101,7 @@
                 <button type="submit">{{ trans('storefront::product.add_to_wishlist') }}</button>
             </form>
 
-{{--            <form method="POST" action="{{ route('compare.store') }}">--}}
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('compare.store') }}">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">

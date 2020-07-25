@@ -44,7 +44,8 @@
         @stack('globals')
 
         {{--//TODO:remove admin route--}}
-        @routes
+        @routes(['store'])
+
     </head>
     <body class="theme-{{ $theme }} {{ Stf::layout() }} {{ Crud::is_rtl() ? 'rtl' : 'ltr' }}">
         <!--[if lt IE 8]>

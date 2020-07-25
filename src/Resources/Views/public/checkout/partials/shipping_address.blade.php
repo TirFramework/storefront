@@ -102,4 +102,16 @@
             {!! $errors->first('shipping.state', '<span class="error-message">:message</span>') !!}
         </div>
     </div>
+
+    <div class="col-md-12">
+        <div class="form-group {{ $errors->has('shipping.comment') ? 'has-error': '' }}">
+            <label for="shipping-comment">
+                {{ trans('storefront::checkout.tabs.attributes.shipping.comment') }}<span>*</span>
+            </label>
+
+            <textarea name="shipping[comment]" class="form-control" id="shipping-comment">{{ old('shipping.comment') }}</textarea>
+
+            {!! $errors->first('shipping.comment', '<span class="error-message">:message</span>') !!}
+        </div>
+    </div>
 </div>

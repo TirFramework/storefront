@@ -29,9 +29,13 @@
         </div>
 
         <div class="product-content clearfix">
+            @if($product->call_for_price == 1)
+                <span class="product-price">{{ trans('product::front.call_for_price') }}</span>
+            @else
             <span class="product-price">
                 {{ \Tir\Store\Product\Support\Price::render($product) }}
             </span>
+            @endif
             <span class="product-name">{{ $product->name }}</span>
         </div>
 
@@ -56,10 +60,15 @@
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="qty" value="1">
-
-                    <button class="btn btn-default btn-add-to-cart" {{ $product->isOutOfStock() ? 'disabled' : '' }}>
-                        {{ trans('storefront::product_card.add_to_cart') }}
-                    </button>
+                    @if($product->call_for_price == 1)
+                        <button class="btn btn-default btn-add-to-cart" disabled >
+                            {{ trans('storefront::product_card.call_for_price') }}
+                        </button>
+                    @else
+                        <button class="btn btn-default btn-add-to-cart" {{ $product->isOutOfStock() ? 'disabled' : '' }}>
+                            {{ trans('storefront::product_card.add_to_cart') }}
+                        </button>
+                    @endif
                 </form>
             @endif
 

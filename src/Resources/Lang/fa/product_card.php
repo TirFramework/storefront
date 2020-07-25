@@ -8,4 +8,5 @@ return [
     'new' => 'جدید',
     'add_to_wishlist' => 'افزودن به علاقه‌مندی‌ها',
     'add_to_compare' => 'مقایسه',
+    'call_for_price' => 'تماس بگیرید'
 ];
