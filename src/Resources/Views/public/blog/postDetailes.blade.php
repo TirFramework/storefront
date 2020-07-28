@@ -35,13 +35,13 @@
                     <div class="main-article">
                         <div class="category-breadcrumb">
                             <ul class="text-left">
+                                @foreach ($post->categories as $category)
                                 <li>
-                                <a href="">
-                                        آموزش
-                                </a> </li>
-                                <li> <a href="">
-                                    آشنایی با ما
-                                </a> </li>
+                                    <a href="{{route('post.category', $category->slug)}}">
+                                        {{$category->name}}
+                                    </a> 
+                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <h1 class="title text-left">
@@ -51,44 +51,21 @@
                             <span>
                                 نوشته شده:  
                             </span>
-                            <a href="">
-                                روابط عمومی امداد خودرو ایران
-                            </a>
+                            {{-- <a href=""> --}}
+                                {{$post->author->first_name}} {{$post->author->last_name}}
+                            {{-- </a> --}}
                             <span class="ml-4 warm-grey FS-13 ">
                                 <svg style="vertical-align: -3px;" xmlns="http://www.w3.org/2000/svg" class="warm-grey" width="14"  viewBox="0 0 18.4 19.82" enable-background="new 0 0 18.4 19.82"><path d="M17.98 3.25a1.35 1.35 0 0 0-.99-.42h-1.42V1.77c0-.49-.17-.9-.52-1.25A1.7 1.7 0 0 0 13.8 0h-.71c-.49 0-.9.17-1.25.52a1.7 1.7 0 0 0-.52 1.25v1.06H7.08V1.77c0-.49-.17-.9-.52-1.25A1.7 1.7 0 0 0 5.31 0H4.6c-.49 0-.9.17-1.25.52a1.7 1.7 0 0 0-.52 1.25v1.06H1.42c-.38 0-.72.14-1 .42-.28.28-.42.61-.42 1V18.4c0 .38.14.71.42.99.28.28.61.42 1 .42h15.57c.38 0 .72-.14 1-.42.28-.28.42-.61.42-.99V4.25a1.41 1.41 0 0 0-.43-1zm-5.24-1.48c0-.1.03-.19.1-.25.07-.07.15-.1.25-.1h.71c.1 0 .19.03.25.1.07.07.1.15.1.25v3.18c0 .1-.03.19-.1.25a.33.33 0 0 1-.25.1h-.71a.32.32 0 0 1-.25-.1.33.33 0 0 1-.1-.25V1.77zm-8.49 0c0-.1.03-.19.1-.25.07-.07.15-.1.25-.1h.71c.1 0 .19.03.25.1.07.07.1.15.1.25v3.18c0 .1-.03.19-.1.25a.33.33 0 0 1-.25.1H4.6a.32.32 0 0 1-.25-.1.33.33 0 0 1-.1-.25V1.77zM16.98 18.4H1.42V7.08h15.57V18.4zm0 0"/></svg>
-                                ۲۵ اردیبهشت ۱۳۹۷
+                                {{ $post->published_at}}
                             </span>
                         </h3>
                         <div class="article-pic">
-                            <img src="./assets/img/demo/main-article.jpg" alt="main-article">
+                            <img src="{{ $post->images }}" alt="{{ $post->images}}">
+
+                            
                         </div>
                         <div class="article-description">
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                                    در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                </p>
-                                <div class="quotation-paragraph">
-                                    <p class="mb-1 FS-12">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                                        <span class="golden-yellow d-block FS-13">
-                                                تیرداد عباسی
-                                        </span>
-                                    </p>
-                                </div>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                                    در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                                    
-                                </p>
-                                <h4 class="FS-16">
-                                    در این صورت می توان امید داشت ؟
-                                </h4>
-                                <p>
-                                    که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                                    در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                                    در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                </p>
+                                {!! $post->content !!}
                         </div>
              
                         <div class="share-and-comment">
@@ -127,7 +104,7 @@
                     </div>
 
 
-                    <div class="author-end-article mt-4">
+                    {{-- <div class="author-end-article mt-4">
                             <div class="d-flex">
                                 <div class="pl-0">
                                 <img src="assets/img/camment-profile.png" class="profile" alt="">
@@ -141,34 +118,40 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <hr>
                             <div class="row text-center text-md-right">
+                                @isset($previous)
+                                    
                                 <div class="col-md-6">
                                     <span class="d-block mb-1 FS-14">
-                                        <a href="#" class="peacock-blue-H warm-grey">
+                                        <a href="{{ route('post.Details',  $previous->slug ) }}" class="peacock-blue-H warm-grey">
                                             پست پیشین
                                         </a>
                                     </span>
                                     <h2 class="FS-14">
-                                        <a href="#" class="greyish-brown peacock-blue-H">
-                                            روش نگهداری از خودرو و نکاتی باید بدانید . . .
+                                        <a href="{{ route('post.Details',  $previous->slug ) }}" class="greyish-brown peacock-blue-H">
+                                            {{ $previous->title }}
                                         </a>
                                     </h2>
                                 </div>
+                                @endisset
+                                @isset($next)
+                                    
                                 <div class="col-md-6 text-center text-md-left" >
                                     <span class="d-block mb-1 FS-14">
-                                        <a href="#" class="peacock-blue-H warm-grey">
+                                        <a href="{{ route('post.Details',  $next->slug ) }}" class="peacock-blue-H warm-grey">
                                             پست بعدی
                                         </a>
                                     </span>
                                     <h2 class="FS-14">
-                                        <a href="#" class="greyish-brown peacock-blue-H">
-                                                امداد خودرو تنها نماینده رسمی ایران خودرو . . .
+                                        <a href="{{ route('post.Details',  $next->slug ) }}" class="greyish-brown peacock-blue-H">
+                                            {{ $next->title }}
                                         </a>
                                     </h2>    
                                 </div>
+                                @endisset
                             </div>
                         <hr>
 
@@ -182,69 +165,30 @@
 
 
                     <div class="row">
+                        @foreach ($relatedPosts as $relatedPost)
+                            
                         <!-- ========================= -->
                         <div class="intro-article col-4 p-1 p-md-3">
                             <div class="">
                                 <div class="intro-article-pic ">
-                                    <img src="./assets/img/demo/intro-artucle.jpg" alt="" class="mw-100">
+                                    <img src="{{ $relatedPost->images }}" alt="{{  $relatedPost->title }}" class="mw-100">
                                 </div>
                                 <div class="intro-article-text ">
                                     <div class="category-breadcrumb">
                       
                                     </div>
                                     <h4 class="title">
-                                        امداد خودرو دوست خوب خودرو شما
+                                        {{ $relatedPost->title }}
                                     </h4>
                                     <span class="warm-grey FS-13">
-                                        ۲۵ اردیبهشت ۱۳۹۷
+                                        {{ $relatedPost->published_at }}
                                     </span>
                                 </div>
                             </div>  <!-- row  -->
                         </div>  <!-- intro-article  -->
                         <!-- ========================= -->
-                        <!-- ========================= -->
-                        <div class="intro-article col-4 p-1 p-md-3">
-                            <div class="">
-                                <div class="intro-article-pic ">
-                                    <img src="./assets/img/demo/intro-artucle.jpg" alt="" class="mw-100">
-                                </div>
-                                <div class="intro-article-text ">
-                                    <div class="category-breadcrumb">
-                      
-                                    </div>
-                                    <h1 class="title">
-                                        امداد خودرو دوست خوب خودرو شما
-                                    </h1>
-                                    <span class="warm-grey FS-13">
-                                            ۲۵ اردیبهشت ۱۳۹۷
-                                        </span>
-    
-                                </div>
-                            </div>  <!-- row  -->
-                        </div>  <!-- intro-article  -->
-                        <!-- ========================= -->
-                        <!-- ========================= -->
-                        <div class="intro-article col-4 p-1 p-md-3">
-                            <div class="">
-                                <div class="intro-article-pic ">
-                                    <img src="./assets/img/demo/intro-artucle.jpg" alt="" class="mw-100">
-                                </div>
-                                <div class="intro-article-text ">
-                                    <div class="category-breadcrumb">
-                      
-                                    </div>
-                                    <h1 class="title">
-                                        امداد خودرو دوست خوب خودرو شما
-                                    </h1>
-                                    <span class="warm-grey FS-13">
-                                            ۲۵ اردیبهشت ۱۳۹۷
-                                        </span>
-    
-                                </div>
-                            </div>  <!-- row  -->
-                        </div>  <!-- intro-article  -->
-                        <!-- ========================= -->
-                        
+                        @endforeach
+
                     </div>
                     <hr>
                         
@@ -262,75 +206,25 @@
                             <div class="card">
                                 <h4 class="title-sidebar"> واپسین نوشته‌ها </h4>
                                 <div class="last-articles">
-                                    <div class="last-article-intro">
-                                        <div class="last-article-pic">
-                                            <img src="./assets/img/demo/intro-artucle.jpg" alt="">
-                                        </div>
-                                        <div class="last-article-title">
-                                            <a href="">
-                                                چگونه از امداد کمک بگیریم
-                                            </a>
-                                        </div>  
-                                        <div class="last-article-date">
-                                                ۲۵ اردیبهشت ۱۳۹۷
-                                        </div>
-                                    </div>
     
-                                    <div class="last-article-intro">
-                                        <div class="last-article-pic">
-                                            <img src="./assets/img/demo/intro-artucle.jpg" alt="">
+
+                                    @foreach ($lastposts as $lastpost)
+                                            
+                                        <div class="last-article-intro">
+                                            <div class="last-article-pic">
+                                                <img src="{{ $lastpost->images }}" alt="">
+                                            </div>
+                                            <div class="last-article-title">
+                                                <a href="{{ route('post.details' , $lastpost->slug ) }}">
+                                                    {{ $lastpost->title }}
+                                                </a>
+                                            </div>  
+                                            <div class="last-article-date">
+                                                    {{  $lastpost->published_at }}
+                                            </div>
                                         </div>
-                                        <div class="last-article-title">
-                                            <a href="">
-                                                چگونه از امداد کمک بگیریم
-                                            </a>
-                                        </div>  
-                                        <div class="last-article-date">
-                                                ۲۵ اردیبهشت ۱۳۹۷
-                                        </div>
-                                    </div>
-    
-                                    <div class="last-article-intro">
-                                        <div class="last-article-pic">
-                                            <img src="./assets/img/demo/intro-artucle.jpg" alt="">
-                                        </div>
-                                        <div class="last-article-title">
-                                            <a href="">
-                                                چگونه از امداد کمک بگیریم
-                                            </a>
-                                        </div>  
-                                        <div class="last-article-date">
-                                                ۲۵ اردیبهشت ۱۳۹۷
-                                        </div>
-                                    </div>
-    
-                                    <div class="last-article-intro">
-                                        <div class="last-article-pic">
-                                            <img src="./assets/img/demo/intro-artucle.jpg" alt="">
-                                        </div>
-                                        <div class="last-article-title">
-                                            <a href="">
-                                                    روش نگهداری از خودرو و نکاتی باید بدانید روش نگهداری از خودرو و نکاتی باید بدانید 
-                                            </a>
-                                        </div>  
-                                        <div class="last-article-date">
-                                                ۲۵ اردیبهشت ۱۳۹۷
-                                        </div>
-                                    </div>
-    
-                                    <div class="last-article-intro">
-                                        <div class="last-article-pic">
-                                            <img src="./assets/img/demo/intro-artucle.jpg" alt="">
-                                        </div>
-                                        <div class="last-article-title">
-                                            <a href="">
-                                                چگونه از امداد کمک بگیریم
-                                            </a>
-                                        </div>  
-                                        <div class="last-article-date">
-                                                ۲۵ اردیبهشت ۱۳۹۷
-                                        </div>
-                                    </div>                        
+                                    @endforeach
+               
                                 </div>
                             </div>
 
@@ -341,18 +235,21 @@
                                 <h4 class="title-sidebar"> دسته بندی نوشته‌ها </h4>
                                 <div class="categorization ">
                                     <ul>
+
+                                        @foreach ($categories as $categiry)
+                                            
                                         <li>
                                             <span class="for-border">
                                                 <span class="link">
                                                     <a href="#">
-                                                        مطالب آموزشی
+                                                        {{ $categiry->name }}
                                                     </a>
                                                 </span>
                                                 <span class="number">
-                                                    (۳۹)
+                                                    ({{  $categiry->posts_count }})
                                                 </span>
                                             </span>
-                                            <ul>
+                                            {{-- <ul>
                                                 <li>
                                                     <span class="for-border">
                                                         <span class="link">
@@ -389,33 +286,10 @@
                                                         </span>
                                                     </span>
                                                 </li>
-                                            </ul>
+                                            </ul> --}}
                                         </li>
+                                        @endforeach
     
-                                        <li>
-                                            <span class="for-border">
-                                                <span class="link">
-                                                    <a href="#">
-                                                        مطالب آموزشی
-                                                    </a>
-                                                </span>
-                                                <span class="number">
-                                                    (۳۹)
-                                                </span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="for-border">
-                                                <span class="link">
-                                                    <a href="#">
-                                                        مطالب آموزشی
-                                                    </a>
-                                                </span>
-                                                <span class="number">
-                                                    (۳۹)
-                                                </span>
-                                            </span>
-                                        </li>
     
                                     </ul>
                                 </div>
@@ -439,7 +313,7 @@
 
 
 
-                            <div class="card">
+                            {{-- <div class="card">
                                 <h4 class="title-sidebar d-none d-lg-block"> در اینستاگرام با ما همراه باشید </h4>
     
                                 <div class="instagram d-none d-lg-flex">
@@ -480,7 +354,7 @@
                                     </div>
     
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
 
