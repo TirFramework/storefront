@@ -43,7 +43,6 @@
 
         @stack('globals')
 
-        {{--//TODO:remove admin route--}}
         @routes(['store'])
 
     </head>
