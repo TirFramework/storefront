@@ -37,6 +37,10 @@
                             <ul class="text-left">
                                 @foreach ($post->categories as $category)
                                 <li>
+                                    @if ($loop->first)
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="warm-grey" width="15" viewBox="0 0 29.58 25.03" enable-background="new 0 0 29.58 25.03"><path d="M28.41 5.72a3.84 3.84 0 0 0-2.81-1.17H13.65v-.57c0-1.09-.39-2.03-1.17-2.81A3.84 3.84 0 0 0 9.67 0H3.98C2.89 0 1.96.39 1.17 1.17A3.85 3.85 0 0 0 0 3.98v17.07c0 1.09.39 2.03 1.17 2.81a3.84 3.84 0 0 0 2.81 1.17H25.6c1.09 0 2.03-.39 2.81-1.17a3.84 3.84 0 0 0 1.17-2.81V8.53c0-1.09-.39-2.02-1.17-2.81zm-1.1 15.33c0 .47-.17.88-.5 1.21-.33.33-.73.5-1.21.5H3.98c-.47 0-.88-.17-1.21-.5-.33-.33-.5-.74-.5-1.21V3.98c0-.47.17-.88.5-1.21.33-.33.74-.5 1.21-.5h5.69c.47 0 .88.17 1.21.5.33.33.5.74.5 1.21v1.14c0 .47.17.88.5 1.21.33.33.74.5 1.21.5H25.6c.48 0 .88.17 1.21.5.33.33.5.73.5 1.21v12.51zm0 0"/></svg>    
+                                    @endif
+
                                     <a href="{{route('post.category', $category->slug)}}">
                                         {{$category->name}}
                                     </a> 
@@ -73,7 +77,7 @@
                                 <div class="carate-date">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="warm-grey" width="14"  viewBox="0 0 18.4 19.82" enable-background="new 0 0 18.4 19.82"><path d="M17.98 3.25a1.35 1.35 0 0 0-.99-.42h-1.42V1.77c0-.49-.17-.9-.52-1.25A1.7 1.7 0 0 0 13.8 0h-.71c-.49 0-.9.17-1.25.52a1.7 1.7 0 0 0-.52 1.25v1.06H7.08V1.77c0-.49-.17-.9-.52-1.25A1.7 1.7 0 0 0 5.31 0H4.6c-.49 0-.9.17-1.25.52a1.7 1.7 0 0 0-.52 1.25v1.06H1.42c-.38 0-.72.14-1 .42-.28.28-.42.61-.42 1V18.4c0 .38.14.71.42.99.28.28.61.42 1 .42h15.57c.38 0 .72-.14 1-.42.28-.28.42-.61.42-.99V4.25a1.41 1.41 0 0 0-.43-1zm-5.24-1.48c0-.1.03-.19.1-.25.07-.07.15-.1.25-.1h.71c.1 0 .19.03.25.1.07.07.1.15.1.25v3.18c0 .1-.03.19-.1.25a.33.33 0 0 1-.25.1h-.71a.32.32 0 0 1-.25-.1.33.33 0 0 1-.1-.25V1.77zm-8.49 0c0-.1.03-.19.1-.25.07-.07.15-.1.25-.1h.71c.1 0 .19.03.25.1.07.07.1.15.1.25v3.18c0 .1-.03.19-.1.25a.33.33 0 0 1-.25.1H4.6a.32.32 0 0 1-.25-.1.33.33 0 0 1-.1-.25V1.77zM16.98 18.4H1.42V7.08h15.57V18.4zm0 0"/></svg>
                                         <span>
-                                            ۲۵ اردیبهشت ۱۳۹۷
+                                            {{ $post->published_at}}
                                         </span>
                                 </div>
                             </div>
@@ -126,12 +130,12 @@
                                     
                                 <div class="col-md-6">
                                     <span class="d-block mb-1 FS-14">
-                                        <a href="{{ route('post.Details',  $previous->slug ) }}" class="peacock-blue-H warm-grey">
+                                        <a href="{{ route('post.details',  $previous->slug ) }}" class="peacock-blue-H warm-grey">
                                             پست پیشین
                                         </a>
                                     </span>
                                     <h2 class="FS-14">
-                                        <a href="{{ route('post.Details',  $previous->slug ) }}" class="greyish-brown peacock-blue-H">
+                                        <a href="{{ route('post.details',  $previous->slug ) }}" class="greyish-brown peacock-blue-H">
                                             {{ $previous->title }}
                                         </a>
                                     </h2>
@@ -141,12 +145,12 @@
                                     
                                 <div class="col-md-6 text-center text-md-left" >
                                     <span class="d-block mb-1 FS-14">
-                                        <a href="{{ route('post.Details',  $next->slug ) }}" class="peacock-blue-H warm-grey">
+                                        <a href="{{ route('post.details',  $next->slug ) }}" class="peacock-blue-H warm-grey">
                                             پست بعدی
                                         </a>
                                     </span>
                                     <h2 class="FS-14">
-                                        <a href="{{ route('post.Details',  $next->slug ) }}" class="greyish-brown peacock-blue-H">
+                                        <a href="{{ route('post.details',  $next->slug ) }}" class="greyish-brown peacock-blue-H">
                                             {{ $next->title }}
                                         </a>
                                     </h2>    
