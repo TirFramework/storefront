@@ -42,6 +42,9 @@ class StorefrontServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (! config('app.installed')) {
+            return;
+        }
         $this->adminMenu();
     }
 
