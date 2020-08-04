@@ -48,7 +48,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <h1 class="title text-left">
+                        <h1 class="title text-left FS-20">
                             {{ $post->title }}
                         </h1>
                         <h3 class="author text-left font-weight-normal">

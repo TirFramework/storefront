@@ -53,10 +53,15 @@
 
         <div class="main">
             <div class="wrapper">
-                @include('storefront::public.partials.sidebar')
-                @include('storefront::public.partials.top_nav')
-                @include('storefront::public.partials.header')
-                @include('storefront::public.partials.navbar')
+                <div class="header-amaj">
+                    <div class="header-inner">
+                        @include('storefront::public.partials.sidebar')
+                        @include('storefront::public.partials.top_nav')
+                        @include('storefront::public.partials.header')
+                        @include('storefront::public.partials.navbar')
+                        <div class="header-wrapper"></div>
+                    </div>
+                </div>
 
                 <div class="content-wrapper clearfix {{ request()->routeIs('cart.index') ? 'cart-page' : '' }}">
                     <div class="container">

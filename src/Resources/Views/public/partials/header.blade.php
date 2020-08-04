@@ -1,5 +1,5 @@
-<section class="header-wrapper">
-    <div class="header-inner">
+<section class="">
+    <div class="search-logo">
         <div class="container">
             <button class="navbar-toggle visible-sm visible-xs pull-left" type="button">
                 <span class="top-bar icon-bar"></span>
