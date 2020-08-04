@@ -4,9 +4,9 @@
     <div class="display-table">
         <div class="display-table-cell">
             <div class="banner-content">
-                <h2>{{ $bannerSectionTwoBanner->caption_1 }}</h2>
-                <p>{{ $bannerSectionTwoBanner->caption_2 }}</p>
-                <span>
+                <h2 style="color:{{$bannerSectionTwoBanner->caption_1_color ?? null }}">{{ $bannerSectionTwoBanner->caption_1 }}</h2>
+                <p style="color:{{$bannerSectionTwoBanner->caption_2_color ?? null}}">{{ $bannerSectionTwoBanner->caption_2 }}</p>
+                <span style="color:{{$bannerSectionTwoBanner->call_to_action_color ?? null}}">
                     {{ $bannerSectionTwoBanner->call_to_action_text }}
                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                 </span>
