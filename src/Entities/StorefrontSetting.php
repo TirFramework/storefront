@@ -275,6 +275,26 @@ class StorefrontSetting extends CrudModel
                                 'type'    => 'text',
                                 'visible' => 'ce',
                             ],
+                            [
+                                'name'    => 'storefront_whatsapp_link',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'storefront_telegram_link',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'storefront_aparat_link',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
+                                'name'    => 'storefront_namasha_link',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
 
                         ]
                     ]
