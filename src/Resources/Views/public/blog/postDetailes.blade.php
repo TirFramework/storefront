@@ -9,7 +9,6 @@
 
 @section('content')
 
-    
 
 
 <!-- <img src="./blog-page.jpg" class="home" alt=""> -->
@@ -23,8 +22,6 @@
 
         </div>
     </div>
-
-
 
     
     <section class="bg-before-dot">
@@ -322,23 +319,23 @@
                                 </div>
                             </div>
 
-                            @if ($socialLinks->isNotEmpty())
-                                <div class="card">
-                                    <h4 class="title-sidebar d-none d-lg-block"> ما را در شبکه‌های اجتماعی دنبال کنید </h4>
-        
-                                    <div class="social d-none d-lg-block">
-                                        <div class="social-container">
-                                            <ul class="">
-                                                @foreach ($socialLinks as $icon => $link)
-                                                    @if (! is_null($link))
-                                                        <li><a href="{{ $link }}"><i class="fa fa-{{ $icon }}" aria-hidden="true"></i></a></li>
-                                                    @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
+{{--                            @if ($socialLinks->isNotEmpty())--}}
+{{--                                <div class="card">--}}
+{{--                                    <h4 class="title-sidebar d-none d-lg-block"> ما را در شبکه‌های اجتماعی دنبال کنید </h4>--}}
+{{--        --}}
+{{--                                    <div class="social d-none d-lg-block">--}}
+{{--                                        <div class="social-container">--}}
+{{--                                            <ul class="">--}}
+{{--                                                @foreach ($socialLinks as $icon => $link)--}}
+{{--                                                    @if (! is_null($link))--}}
+{{--                                                        <li><a href="{{ $link }}"><i class="fa fa-{{ $icon }}" aria-hidden="true"></i></a></li>--}}
+{{--                                                    @endif--}}
+{{--                                                @endforeach--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
 
 
 
