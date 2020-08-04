@@ -53,7 +53,7 @@
 
                         @isset( $posts[0]->images )
                             <div class="article-pic">
-                                <img src="{{ $posts[0]->images['main']  }}" alt="{{ $posts[0]->title }}">
+                                <img src="{{ $posts[0]->images['main']  }}" alt="{{ $posts[0]->title }}" class="mw-100">
                             </div>
                         @endisset
 
@@ -226,7 +226,7 @@
                                         
                                     <div class="last-article-intro">
                                         <div class="last-article-pic">
-                                            <img src="{{ $lastpost->images['intro'] }}" alt="{{ $lastpost->title }}">
+                                            <img src="{{ $lastpost->images['intro'] }}" alt="{{ $lastpost->title }}" class="mw-100">
                                         </div>
                                         <div class="last-article-title">
                                             <a href="{{ route('post.details' , $lastpost->slug ) }}">
@@ -310,20 +310,22 @@
                         </div>
 
 
-                        <div class="card">
-                            <h4 class="title-sidebar d-none d-lg-block"> ما را در شبکه‌های اجتماعی دنبال کنید </h4>
-
-                            <div class="social d-none d-lg-block">
-                                <div class="social-container">
-                                    <ul class="social-icons">
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                    </ul>
+                        @if ($socialLinks->isNotEmpty())
+                            <div class="card">
+                                <h4 class="title-sidebar d-none d-lg-block"> ما را در شبکه‌های اجتماعی دنبال کنید </h4>
+                                <div class="social d-none d-lg-block">
+                                    <div class="social-container">
+                                        <ul class="">
+                                            @foreach ($socialLinks as $icon => $link)
+                                                @if (! is_null($link))
+                                                    <li><a href="{{ $link }}"><i class="fa fa-{{ $icon }}" aria-hidden="true"></i></a></li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
 
 
 
