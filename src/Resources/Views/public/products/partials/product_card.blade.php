@@ -1,4 +1,5 @@
-<a href="{{ route('products.show', $product->slug) }}" class="product-card">
+<div class="product-card">
+    <a href="{{ route('products.show', $product->slug) }}" class="link-cart"></a>
     <div class="product-card-inner">
         <div class="product-image clearfix">
             <ul class="product-ribbon list-inline">
@@ -61,9 +62,9 @@
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="qty" value="1">
                     @if($product->call_for_price == 1)
-                        <button class="btn btn-default btn-add-to-cart" disabled >
+                        <a href="/page/تماس-با-ما" class="btn btn-default btn-call"  href="/page/تماس-با-ما" >
                             {{ trans('storefront::product_card.call_for_price') }}
-                        </button>
+                        </a>
                     @else
                         <button class="btn btn-default btn-add-to-cart" {{ $product->isOutOfStock() ? 'disabled' : '' }}>
                             {{ trans('storefront::product_card.add_to_cart') }}
@@ -83,4 +84,4 @@
             </form>
         </div>
     </div>
-</a>
+</div>

@@ -65,7 +65,7 @@
                         </div>
                         <div class="readmore">
                             <a href="{{ route('post.details',  $posts[0]->slug ) }}">
-                                <span>
+                                <span class="red btn ">
                                     بیشتر بخوانید
                                 </span>
                             </a>
@@ -158,9 +158,11 @@
                     
                                                 </ul>
                                             </div>
-                                            <h1 class="title">
-                                                {{  $post->title }}
-                                            </h1>
+                                            <a href="{{ route('post.details',  $posts[0]->slug ) }}">
+                                                <h2 class="title">
+                                                    {{  $post->title }}
+                                                </h2>
+                                            </a>
                                             <h3 class="author">
                                                 <span>
                                                     نوشته شده:  

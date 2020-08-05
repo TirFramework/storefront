@@ -54,16 +54,18 @@
         @include('storefront::public.home.sections.banner_section_2')
     @endif
 
+    @if (Stg::get('storefront_landscape_products_section_enabled'))
+    @include('storefront::public.products.partials.landscape_products', [
+        'title' => Stg::get('storefront_landscape_products_section_title'),
+        'products' => $landscapeProducts
+    ])
+@endif
+
     @if (Stg::get('storefront_three_column_vertical_product_carousel_section_enabled'))
         @include('storefront::public.home.sections.three_column_vertical_product_carousel')
     @endif
 
-    @if (Stg::get('storefront_landscape_products_section_enabled'))
-        @include('storefront::public.products.partials.landscape_products', [
-            'title' => Stg::get('storefront_landscape_products_section_title'),
-            'products' => $landscapeProducts
-        ])
-    @endif
+
 
     @if (Stg::get('storefront_banner_section_3_enabled'))
         @include('storefront::public.home.sections.banner_section_3')
