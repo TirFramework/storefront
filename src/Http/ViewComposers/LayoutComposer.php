@@ -156,6 +156,10 @@ class LayoutComposer
             'pinterest' => Stg::get('storefront_pinterest_link'),
             'google-plus' => Stg::get('storefront_google_plus_link'),
             'youtube' => Stg::get('storefront_youtube_link'),
+            'aparat' => Stg::get('storefront_aparat_link'),
+            'namasha' => Stg::get('storefront_namasha_link'),
+            'whatsapp' => Stg::get('storefront_whatsapp_link'),
+            'telegram' => Stg::get('storefront_telegram_link')
         ])->reject(function ($link) {
             return is_null($link);
         });

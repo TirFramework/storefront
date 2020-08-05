@@ -19,13 +19,13 @@
                 @endif
 
                 @foreach ($product->additionalImages as $additionalImage)
-                    @if (! $additionalImage->exists)
+                    @if (! $additionalImage)
                         <div class="image-placeholder">
                             <i class="fa fa-picture-o"></i>
                         </div>
                     @else
-                        <a class="base-image-inner" href="{{ $additionalImage->path }}">
-                            <img src="{{ $additionalImage->path }}">
+                        <a class="base-image-inner" href="{{ $additionalImage }}">
+                            <img src="{{ $additionalImage }}">
 
                             <span><i class="fa fa-search-plus" aria-hidden="true"></i></span>
                         </a>
@@ -103,11 +103,11 @@
 
                 <div class="clearfix"></div>
 
-                @if (! is_null($product->short_description))
-                    <div class="product-brief">{{ $product->short_description }}</div>
+                @if (! is_null($product->summary))
+                    <div class="product-brief">{{ $product->summary }}</div>
                 @endif
 
-{{--                <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">--}}
+                <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">
                     {{ csrf_field() }}
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -143,7 +143,7 @@
                 <div class="clearfix"></div>
 
                 <div class="add-to clearfix">
-{{--                    <form method="POST" action="{{ route('compare.store') }}">--}}
+                    <form method="POST" action="{{ route('compare.store') }}">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -151,7 +151,7 @@
                         <button type="submit">{{ trans('storefront::product.add_to_compare') }}</button>
                     </form>
 
-{{--                    <form method="POST" action="{{ route('wishlist.store') }}">--}}
+                    <form method="POST" action="{{ route('wishlist.store') }}">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
