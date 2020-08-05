@@ -45,8 +45,8 @@
 
         <div class="clearfix"></div>
 
-        @if (! is_null($product->short_description))
-            <div class="product-brief">{{ $product->short_description }}</div>
+        @if (! is_null($product->summary))
+            <div class="product-brief">{!! $product->summary !!}</div>
         @endif
 
         <form method="POST" action="{{ route('cart.items.store') }}" class="clearfix">
