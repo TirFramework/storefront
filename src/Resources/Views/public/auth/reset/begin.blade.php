@@ -1,10 +1,10 @@
-@extends('public.layout')
+@extends('storefront::public.layout')
 
 @section('title', trans('user::auth.reset_password'))
 
 @section('content')
     <div class="form-wrapper">
-        @include('public.partials.notification')
+        @include('storefront::public.partials.notification')
 
         <div class="form-page">
             <div class="form reset-password clearfix">

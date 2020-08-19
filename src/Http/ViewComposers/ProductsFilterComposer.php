@@ -3,6 +3,8 @@
 namespace Tir\Storefront\Http\ViewComposers;
 
 use Illuminate\Support\Facades\DB;
+use Tir\Store\Attribute\Entities\ProductAttribute;
+use Tir\Store\Attribute\Entities\ProductAttributeValue;
 use Tir\Store\Brand\Entities\Brand;
 use Tir\Store\Product\Entities\Product;
 use Tir\Store\Category\Entities\Category;
@@ -40,26 +42,40 @@ class ProductsFilterComposer
         }
 
 
-
-
         $categorySlug = request('category');
 
-        if(isset($categorySlug)){
-             $filters = Attribute::with('values')
+
+
+
+        if (isset($categorySlug)) {
+
+            $productAttributeIds =  ProductAttribute::whereIn('product_id', $view['productIds'])->pluck('id');
+            $valueIds = ProductAttributeValue::whereIn('product_attribute_id', $productAttributeIds)->distinct()->pluck('attribute_value_id');
+            $filters = Attribute::with(['values' =>function($query) use ($valueIds){
+                $query->whereIn('id', $valueIds);
+            }])
                 ->where('is_filterable', true)
                 ->whereHas('categories', function ($query) use ($categorySlug) {
                     $query->where('id', $this->getCategoryId($categorySlug));
-                })->orderBy('position')->get();
-        return $filters;
+                })
+                ->orderBy('position')->get();
         }
 
-        //Original code
-        return Attribute::with('values')
+        return $filters;
+
+
+         $filters = Attribute::with('values')
             ->where('is_filterable', true)
             ->whereHas('categories', function ($query) use ($view) {
                 $query->whereIn('id', $this->getProductsCategoryIds($view));
-            })
+            })->orderBy('position')
             ->get();
+
+
+
+
+        return $filters;
+
 
         return [];
 
