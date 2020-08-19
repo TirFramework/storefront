@@ -93,19 +93,19 @@
                         </div>
 
                         {{--Todo: Enable Coupuns--}}
-                        <div class="cart-list-bottom">
-                            <form method="POST" action="{{ route('cart.coupon.store') }}" id="coupon-apply-form" class="clearfix">
-                                {{ csrf_field() }}
+{{--                        <div class="cart-list-bottom">--}}
+{{--                            <form method="POST" action="{{ route('cart.coupon.store') }}" id="coupon-apply-form" class="clearfix">--}}
+{{--                                {{ csrf_field() }}--}}
 
-                                <div class="form-group pull-left">
-                                    <input type="text" name="coupon" class="form-control" id="coupon" value="{{ old('coupon') }}">
+{{--                                <div class="form-group pull-left">--}}
+{{--                                    <input type="text" name="coupon" class="form-control" id="coupon" value="{{ old('coupon') }}">--}}
 
-                                    <button type="submit" class="btn btn-primary" id="coupon-apply-submit" data-loading>
-                                        {{ trans('storefront::cart.apply_coupon') }}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+{{--                                    <button type="submit" class="btn btn-primary" id="coupon-apply-submit" data-loading>--}}
+{{--                                        {{ trans('storefront::cart.apply_coupon') }}--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
 
@@ -174,8 +174,8 @@
         </div>
     </div>
 
-{{--    @include('public.products.partials.landscape_products', [--}}
-{{--        'title' => trans('storefront::product.you_might_also_like'),--}}
-{{--        'products' => $cart->crossSellProducts()--}}
-{{--    ])--}}
+    @include('storefront::public.products.partials.landscape_products', [
+        'title' => trans('storefront::product.you_might_also_like'),
+        'products' => $cart->crossSellProducts()
+    ])
 @endsection

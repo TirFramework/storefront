@@ -76,9 +76,15 @@
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                                             <input type="hidden" name="qty" value="1">
 
-                                            <button type="submit" class="btn btn-primary" {{ $product->isOutOfStock() ? 'disabled' : '' }} data-loading>
-                                                {{ trans('storefront::compare.add_to_cart') }}
-                                            </button>
+                                            @if($product->call_for_price == 1)
+                                                <a href="/page/تماس-با-ما" class="btn btn-default btn-call"  href="/page/تماس-با-ما" >
+                                                    {{ trans('storefront::product_card.call_for_price') }}
+                                                </a>
+                                            @else
+                                                <button class="btn btn-default btn-add-to-cart" {{ $product->isOutOfStock() ? 'disabled' : '' }}>
+                                                    {{ trans('storefront::product_card.add_to_cart') }}
+                                                </button>
+                                            @endif
                                         </form>
                                     @endif
                                 </td>

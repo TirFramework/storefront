@@ -18,13 +18,14 @@ class ProductsFilterComposer
      * @param \Illuminate\View\View $view
      * @return void
      */
+    private $categorySlug;
     public function compose($view)
     {
         $view->with([
             'categories' => $this->categories(),
             'attributes' => $this->attributes($view),
-            'maxPrice' => $this->maxPrice(),
-            'brands' => $this->brands()
+            'maxPrice' => $this->maxPrice($view),
+            'brands' => $this->brands($view)
         ]);
     }
 
@@ -42,37 +43,22 @@ class ProductsFilterComposer
         }
 
 
-        $categorySlug = request('category');
+        $this->categorySlug = request('category');
+        $productAttributeIds =  ProductAttribute::whereIn('product_id', $this->getProductIds($view))->pluck('id');
+        $valueIds = ProductAttributeValue::whereIn('product_attribute_id', $productAttributeIds)->distinct()->pluck('attribute_value_id');
 
-
-
-
-        if (isset($categorySlug)) {
-
-            $productAttributeIds =  ProductAttribute::whereIn('product_id', $view['productIds'])->pluck('id');
-            $valueIds = ProductAttributeValue::whereIn('product_attribute_id', $productAttributeIds)->distinct()->pluck('attribute_value_id');
-            $filters = Attribute::with(['values' =>function($query) use ($valueIds){
-                $query->whereIn('id', $valueIds);
-            }])
-                ->where('is_filterable', true)
-                ->whereHas('categories', function ($query) use ($categorySlug) {
-                    $query->where('id', $this->getCategoryId($categorySlug));
-                })
-                ->orderBy('position')->get();
-        }
-
-        return $filters;
-
-
-         $filters = Attribute::with('values')
+        $filters = Attribute::with(['values' =>function($query) use ($valueIds){
+            $query->whereIn('id', $valueIds);
+        }])
             ->where('is_filterable', true)
             ->whereHas('categories', function ($query) use ($view) {
-                $query->whereIn('id', $this->getProductsCategoryIds($view));
+                if(isset($this->categorySlug)){
+                    $query->where('id', $this->getCategoryId());
+                }else{
+                    $query->whereIn('id', $this->getProductsCategoryIds($view));
+                }
             })->orderBy('position')
             ->get();
-
-
-
 
         return $filters;
 
@@ -93,10 +79,25 @@ class ProductsFilterComposer
             ->isRoot();
     }
 
-    private function getCategoryId($categorySlug)
+    private function getCategoryId()
     {
-        return Category::select('id','slug')->where('slug',$categorySlug)->first()->id;
+        return Category::select('id','slug')->where('slug',$this->categorySlug)->first()->id;
 
+    }
+
+    private function getProductIds($view){
+        $productIds = [];
+        if(count($view['productIds']) > 0){
+            $productIds = $view['productIds'];
+        }else{
+            $categorySlug = request('category');
+            if (isset($categorySlug)) {
+                $productIds =  Category::select('id','slug')->where('slug',$categorySlug)->first()->products()->pluck('id');
+
+            }
+        }
+
+        return $productIds;
     }
 
     private function getProductsCategoryIds($view)
@@ -107,18 +108,17 @@ class ProductsFilterComposer
             ->pluck('category_id');
     }
 
-    private function maxPrice()
+    private function maxPrice($view)
     {
-        return Product::max('selling_price');
+        return Product::whereIn('id',$view['productIds'])
+            ->where('call_for_price',0)
+            ->max('selling_price');
     }
 
-    private function brands()
+    private function brands($view)
     {
-        $categorySlug = request('category');
-        return  Brand::whereHas('products',function($query) use($categorySlug){
-            $query->whereHas('categories',function($q) use($categorySlug){
-                $q->where('slug', $categorySlug);
-            });
+        return  Brand::whereHas('products',function($query) use($view){
+                $query->whereIn('id', $view['productIds']);
         })->orderBy('position')->get();
     }
 }

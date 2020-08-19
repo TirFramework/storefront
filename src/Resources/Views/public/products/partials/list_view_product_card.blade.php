@@ -35,7 +35,7 @@
         </div>
 
         <div class="product-card-buttons">
-{{--            <form method="POST" action="{{ route('wishlist.store') }}">--}}
+            <form method="POST" action="{{ route('wishlist.store') }}">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -43,9 +43,9 @@
                 <button type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('storefront::product_card.add_to_wishlist') }}" class="btn btn-wishlist">
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
-{{--            </form>--}}
+            </form>
 
-{{--            <form method="POST" action="{{ route('compare.store') }}">--}}
+            <form method="POST" action="{{ route('compare.store') }}">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -53,23 +53,29 @@
                 <button type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('storefront::product_card.add_to_compare') }}" class="btn btn-compare">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                 </button>
-{{--            </form>--}}
+            </form>
 
             @if ($product->options_count > 0)
                 <a href="{{ route('products.show', ['slug' => $product->slug]) }}" class="btn btn-primary">
                     {{ trans('storefront::product_card.view_details') }}
                 </a>
             @else
-{{--                <form method="POST" action="{{ route('cart.items.store') }}">--}}
+                <form method="POST" action="{{ route('cart.items.store') }}">
                     {{ csrf_field() }}
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <input type="hidden" name="qty" value="1">
 
-                    <button type="submit" class="add-to-cart btn btn-primary" {{ $product->isOutOfStock() ? 'disabled' : '' }} data-loading>
-                        {{ trans('storefront::product_card.add_to_cart') }}
-                    </button>
-{{--                </form>--}}
+                    @if($product->call_for_price == 1)
+                        <a href="/page/تماس-با-ما" class="btn btn-default btn-call"  href="/page/تماس-با-ما" >
+                            {{ trans('storefront::product_card.call_for_price') }}
+                        </a>
+                    @else
+                        <button class="btn btn-default btn-add-to-cart" {{ $product->isOutOfStock() ? 'disabled' : '' }}>
+                            {{ trans('storefront::product_card.add_to_cart') }}
+                        </button>
+                    @endif
+                </form>
             @endif
         </div>
     </div>

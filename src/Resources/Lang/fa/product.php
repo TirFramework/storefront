@@ -38,5 +38,5 @@ return [
         'html_is_not_translated' => 'HTML is not translated!',
     ],
     'related_products' => 'محصولات مرتبط',
-    'you_might_also_like' => 'محصولاتی که ممکن است دوست داشته باشید',
+    'you_might_also_like' => 'محصولاتی که ممکن است علاقه‌مند باشید',
 ];
