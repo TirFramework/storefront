@@ -55,9 +55,9 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-primary next-step pull-right">
-            {{ trans('storefront::checkout.continue') }}
-        </button>
+{{--        <button type="button" class="btn btn-primary next-step pull-right">--}}
+{{--            {{ trans('storefront::checkout.continue') }}--}}
+{{--        </button>--}}
 
         <button type="button" class="btn btn-default prev-step pull-right">
             {{ trans('storefront::checkout.back') }}
