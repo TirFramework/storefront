@@ -106,7 +106,7 @@
     <div class="col-md-12">
         <div class="form-group {{ $errors->has('billing.comment') ? 'has-error': '' }}">
             <label for="billing-comment">
-                {{ trans('storefront::checkout.tabs.attributes.billing.comment') }}<span>*</span>
+                {{ trans('storefront::checkout.tabs.attributes.billing.comment') }}
             </label>
 
             <textarea name="billing[comment]" class="form-control" id="billing-comment">{{ old('billing.comment') }}</textarea>

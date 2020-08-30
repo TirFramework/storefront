@@ -28,6 +28,7 @@ return [
                 'zip' => 'کدپستی',
                 'country' => 'کشور',
                 'state' => 'استان',
+                'comment' => 'توضیحات',
             ],
             'create_an_account' => 'ساخت حساب کاربری',
             'password' => 'گذرواژه',
@@ -41,6 +42,7 @@ return [
                 'zip' => 'کدپستی',
                 'country' => 'کشور',
                 'state' => 'استان',
+                'comment' => 'توضیحات',
             ],
         ],
         'payment' => [
