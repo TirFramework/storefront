@@ -2,10 +2,17 @@
 
 @section('title', $post->title)
 
-
-
 @section('breadcrumb')
 @endsection
+
+@push('meta')
+    <meta name="title" content="{{ $post->meta->meta_title ?? $post->title}}">
+    <meta name="keywords" content="{{ implode(',', $post->meta->meta_keywords) }}">
+    <meta name="description" content="{{ $post->meta->meta_description }}">
+    <meta property="og:title" content="{{ $post->meta->meta_title ?? $post->title}}">
+    <meta property="og:description" content="{{ $post->meta->meta_description }}">
+    <meta property="og:image" content="{{ $post->image ?? null}}">
+@endpush
 
 @section('content')
 

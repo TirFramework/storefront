@@ -3,13 +3,13 @@
 @section('title', $product->name)
 
 @push('meta')
-{{-- //TODO set metadata   --}}
-{{--    <meta name="title" content="{{ $product->meta->meta_title }}">--}}
-{{--    <meta name="keywords" content="{{ implode(',', $product->meta->meta_keywords) }}">--}}
-{{--    <meta name="description" content="{{ $product->meta->meta_description }}">--}}
-{{--    <meta property="og:title" content="{{ $product->meta->meta_title }}">--}}
-{{--    <meta property="og:description" content="{{ $product->meta->meta_description }}">--}}
-{{--    <meta property="og:image" content="{{ $product->image }}">--}}
+    <meta name="title" content="{{ $product->meta->meta_title ?? $product->name}}">
+    <meta name="keywords" content="{{ implode(',', $product->meta->meta_keywords) }}">
+    <meta name="description" content="{{ $product->meta->meta_description }}">
+    <meta property="og:title" content="{{ $product->meta->meta_title ?? $product->name }}">
+    <meta property="og:description" content="{{ $product->meta->meta_description }}">
+    <meta property="og:image" content="{{ $product->image ?? null }}">
+    {!! $product->meta->meta_custom !!}
 @endpush
 
 @section('breadcrumb')
