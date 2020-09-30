@@ -2,7 +2,6 @@
 
 @section('title', $page->name)
 
-//TODO:Add meta
 @push('meta')
     <meta name="title" content="{{ $page->meta->meta_title ?? $page->name}}">
     <meta name="keywords" content="{{ implode(',', $page->meta->meta_keywords) }}">
