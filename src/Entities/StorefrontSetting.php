@@ -1079,14 +1079,14 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'ice',
                             ],
                             [
-                                'name'    => 'storefront_banner_section_1_banner_3_call_to_action_url',
+                                'name'    => 'storefront_banner_section_3_banner_1_call_to_action_url',
                                 'display' => 'call_to_action_url',
                                 'type'    => 'text',
                                 'col'     => 'col-4',
                                 'visible' => 'ice',
                             ],
                             [
-                                'name'    => 'storefront_banner_section_1_banner_3_open_in_new_window',
+                                'name'    => 'storefront_banner_section_3_banner_3_open_in_new_window',
                                 'display' => 'open_in_new_window',
                                 'type'    => 'select',
                                 'data'    => ['1' => 'Yes', '0' => 'No'],

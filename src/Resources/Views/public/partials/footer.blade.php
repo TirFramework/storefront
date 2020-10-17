@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-md-8">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         <div class="row">
                             <div class="links">
                                 <div class="mobile-collapse">
@@ -79,7 +79,7 @@
                     </div>
 
                     @if ($footerMenu->isNotEmpty())
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <div class="row">
                                 <div class="links">
                                     <div class="mobile-collapse">
@@ -93,6 +93,10 @@
                                     </ul>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="col-sm-2">
+                        <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=177802&amp;Code=nyLXSjWOdWHHtMmCSYsg"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=177802&amp;Code=nyLXSjWOdWHHtMmCSYsg" alt="" style="cursor:pointer" id="nyLXSjWOdWHHtMmCSYsg"></a>
                         </div>
                     @endif
                 </div>
