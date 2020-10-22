@@ -276,6 +276,11 @@ class StorefrontSetting extends CrudModel
                                 'visible' => 'ce',
                             ],
                             [
+                                'name'    => 'storefront_linkedin_link',
+                                'type'    => 'text',
+                                'visible' => 'ce',
+                            ],
+                            [
                                 'name'    => 'storefront_whatsapp_link',
                                 'type'    => 'text',
                                 'visible' => 'ce',

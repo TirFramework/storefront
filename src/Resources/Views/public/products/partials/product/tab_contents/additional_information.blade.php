@@ -2,19 +2,17 @@
     <div class="table-responsive">
         <table class="table">
             <tbody>
-                @foreach ($product->attribute_sets as $attributeSet => $attributes)
+                @foreach ($product->attributes as $attribute)
                     <tr>
-                        <td><h4>{{ $attributeSet }}</h4></td>
+                            <td><h4></h4></td>
 
                         <td>
-                            @foreach ($attributes as $attribute)
-                                <div class="information-data clearfix">
-                                    <label class="pull-left">{{ $attribute->name }}</label>
-                                    <span>
-                                        {{ $attribute->values->implode('value', ', ') }}
-                                    </span>
-                                </div>
-                            @endforeach
+                            <div class="information-data clearfix">
+                                <label class="pull-left">{{ $attribute->name }}</label>
+                                <span>
+                                    {{ $attribute->values->implode('value', ', ') }}
+                                </span>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

@@ -200,10 +200,10 @@
                         @foreach ($relatedPosts as $relatedPost)
                             
                         <!-- ========================= -->
-                        <div class="intro-article col-4 p-1 p-md-3">
+                        <div class="intro-article col-lg-4 col-md-6 col-xs-12 p-1 p-md-3">
                             <div class="">
                                 <div class="intro-article-pic ">
-                                    <img src="{{ $relatedPost->images }}" alt="{{  $relatedPost->title }}" class="mw-100">
+                                    <img src="{{ $relatedPost->images['intro'] }}" alt="{{  $relatedPost->title }}" class="mw-100">
                                 </div>
                                 <div class="intro-article-text ">
                                     <div class="category-breadcrumb">
@@ -270,17 +270,17 @@
                                 <div class="categorization ">
                                     <ul>
 
-                                        @foreach ($categories as $categiry)
+                                        @foreach ($categories as $category)
                                             
                                         <li>
                                             <span class="for-border">
                                                 <span class="link">
-                                                    <a href="{{ route('post.category' , $categiry->slug  ) }}">
-                                                        {{ $categiry->name }}
+                                                    <a href="{{ route('post.category' , $category->slug  ) }}">
+                                                        {{ $category->name }}
                                                     </a>
                                                 </span>
                                                 <span class="number">
-                                                    ({{  $categiry->posts_count }})
+                                                    ({{  $category->posts_count }})
                                                 </span>
                                             </span>
                                             {{-- <ul>

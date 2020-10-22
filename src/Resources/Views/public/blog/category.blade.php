@@ -53,7 +53,7 @@
 
                         @isset( $posts[0]->images )
                             <div class="article-pic">
-                                <img src="{{ $posts[0]->images['main']  }}" alt="{{ $posts[0]->title }}" class="mw-100">
+                                <img src="{{ $posts[0]->images['main']  }}" alt="{{ $posts[0]->title }}" class="w-100">
                             </div>
                         @endisset
 
@@ -158,7 +158,7 @@
                     
                                                 </ul>
                                             </div>
-                                            <a href="{{ route('post.details',  $posts[0]->slug ) }}">
+                                            <a href="{{ route('post.details',  $post->slug ) }}">
                                                 <h2 class="title">
                                                     {{  $post->title }}
                                                 </h2>
@@ -169,7 +169,7 @@
                                                 </span>
                                                 <a href="">
                                                     {{  $post->author->first_name }}
-                                                    {{  $post->author->first_name }}
+                                                    {{  $post->author->last_name }}
 
                                                 </a>
                                             </h3>
@@ -190,14 +190,6 @@
 
                     </div>
                         
-                        {{-- <div class="pagenation">
-                            <ul class="">
-                                <li><a href="">۱</a></li>
-                                <li><a href="">۲</a></li>
-                                <li><a href=""><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </div> --}}
-
 
                         {{ $posts->links() }}
 
@@ -214,7 +206,7 @@
 
 
   
-              <div class="col-md-3 blog-sidebar">
+              <div class="col-md-3 xs-hidden blog-sidebar">
                 <div class="">
                     <div class="forpadding">
 
