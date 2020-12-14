@@ -14,6 +14,6 @@ return [
     'cart_totals' => 'مجموع سبد خرید',
     'subtotal' => 'جمع کل',
     'coupon' => 'کوپن',
-    'checkout' => 'تصفیه حساب',
+    'checkout' => 'تسویه حساب',
     'no_shipping_method_is_available' => 'هیچ روش ارسالی وجود ندارد',
 ];

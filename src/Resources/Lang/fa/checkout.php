@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'checkout' => 'تصفیه حساب',
+    'checkout' => 'تسویه حساب',
     'please_select' => 'لطفا انتخاب کنید',
     'address' => 'نشانی',
     'payment' => 'پرداخت',

@@ -14,7 +14,7 @@ return [
     'product' => 'محصولات',
     'unit_price' => 'واحد قیمت',
     'quantity' => 'تعداد',
-    'line_total' => 'Line Total',
+    'line_total' => 'مجموع ردیف',
     'subtotal' => 'جمع کل',
     'coupon' => 'کوپن',
     'total' => 'مجموع',
