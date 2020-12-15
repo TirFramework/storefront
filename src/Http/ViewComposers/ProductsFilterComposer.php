@@ -110,6 +110,11 @@ class ProductsFilterComposer
 
     private function maxPrice($view)
     {
+        if(request('category'))
+        {
+             return Category::select('id','slug')->where('slug',request('category'))->first()->products()->max('selling_price');
+
+        }
         return Product::whereIn('id',$view['productIds'])
             ->where('call_for_price',0)
             ->max('selling_price');
