@@ -15,9 +15,9 @@
                 </div>
 
                 <div class="login form-inner clearfix">
-                    <a href="{{ route('register') }}" class="register" data-toggle="tooltip" data-placement="top" title="{{ trans('user::auth.register') }}" rel="tooltip">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                    </a>
+{{--                    <a href="{{ route('register') }}" class="register" data-toggle="tooltip" data-placement="top" title="{{ trans('user::auth.register') }}" rel="tooltip">--}}
+{{--                        <i class="fa fa-user-plus" aria-hidden="true"></i>--}}
+{{--                    </a>--}}
 
                     <h3>{{ trans('user::auth.login') }}</h3>
 
