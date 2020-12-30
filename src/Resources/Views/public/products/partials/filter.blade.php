@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-filter pull-right" data-loading>{{ trans('storefront::products.filter') }}</button>
+            <button name="filtered" value="true" type="submit" class="btn btn-primary btn-filter pull-right" data-loading>{{ trans('storefront::products.filter') }}</button>
         </form>
     </div>
 </div>
